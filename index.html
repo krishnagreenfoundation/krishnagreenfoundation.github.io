@@ -587,8 +587,8 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
       </article>
       <article class="cap">
         <svg class="cap__ring" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="10" y="10" width="20" height="20" stroke="currentColor" stroke-width="1.4"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.4"/></svg>
-        <h3>Urban forests · Nagaravana</h3>
-        <p>Dense urban and peri-urban forests under the Nagaravana model — green lungs planted close to where communities live.</p>
+        <h3>Urban forests · Nagaravanam</h3>
+        <p>Dense urban and peri-urban forests under the Nagaravanam model — green lungs planted close to where communities live.</p>
         <div class="cap__data">
           <div><b>2</b> sites</div><div><b>62</b> acres</div><div><b>40,237</b> saplings</div>
         </div>
@@ -720,7 +720,7 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
               <option value="">Select…</option>
               <option>Reserve forest restoration</option>
               <option>Eco-tourism park greening</option>
-              <option>Urban forest (Nagaravana)</option>
+              <option>Urban forest (Nagaravanam)</option>
               <option>CSR partnership</option>
               <option>Something else</option>
             </select>
@@ -817,7 +817,7 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
 var CAT = {
   reserve: "Reserve forest & afforestation",
   park:    "Eco-tourism park",
-  urban:   "Urban forest · Nagaravana"
+  urban:   "Urban forest · Nagaravanam"
 };
 var SITES = [
   {no:"01", name:'Muthayapalame RF — Compartment 1, Plot 1', loc:"Kappalavanipalem", cat:"reserve", acres:27, plants:24150},
@@ -826,7 +826,7 @@ var SITES = [
   {no:"04", name:'Motupalli Reserve Forest',                 loc:"Chinnaganjam",     cat:"reserve", acres:27, plants:30000},
   {no:"05", name:'Eco-Tourism Park, Kanigiri',               loc:"Kanigiri",         cat:"park",    acres:49, plants:26660},
   {no:"06", name:'Eco-Tourism Park, Chinarikatla',           loc:"Podili",           cat:"park",    acres:49, plants:26660},
-  {no:"07", name:'Nagaravana Yojana, Bapatla',               loc:"Bapatla",          cat:"urban",   acres:37, plants:24142},
+  {no:"07", name:'Nagaravanam Yojana, Bapatla',               loc:"Bapatla",          cat:"urban",   acres:37, plants:24142},
   {no:"08", name:'Muthyapalem "A" Beat, Bapatla',            loc:"Bapatla",          cat:"reserve", acres:25, plants:11110},
   {no:"09", name:'Nagaravanam, Chirala',                     loc:"Chirala",          cat:"urban",   acres:25, plants:16095}
 ];
@@ -874,7 +874,7 @@ var lastFocus = null;
 function challengeText(cat){
   if(cat==="reserve") return "Open, degraded reserve-forest land with sparse cover and low natural regeneration — the kind of ground that needs dense, deliberate native planting to come back.";
   if(cat==="park")    return "A public eco-tourism park needing durable tree cover that can survive footfall and thrive as a living, walk-in green space.";
-  return "Land near a growing settlement earmarked for a dense urban forest under the Nagaravana model — a green lung planted close to where people live.";
+  return "Land near a growing settlement earmarked for a dense urban forest under the Nagaravanam model — a green lung planted close to where people live.";
 }
 function openCase(no){
   var s = SITES.filter(function(x){return x.no===no;})[0];
