@@ -156,6 +156,28 @@ form.addEventListener("submit", function(e){
   setTimeout(function(){ form.classList.add("is-sent"); document.getElementById("ok").focus(); }, 1100);
 });
 
+/* ---------- gallery ---------- */
+var IMAGES = [
+  {src:"images/logo.jpeg", caption:"Krishna Green Foundation"}
+  /* Add more site photos here, e.g.:
+     {src:"images/site-bapatla-before.jpg",  caption:"Nagaravanam, Bapatla — before"},
+     {src:"images/site-bapatla-after.jpg",   caption:"Nagaravanam, Bapatla — 14 months on"},
+  */
+];
+var galleryGrid = document.getElementById("gallery-grid");
+if(galleryGrid){
+  if(IMAGES.length){
+    galleryGrid.innerHTML = IMAGES.map(function(img){
+      return '<div class="gallery__item">'
+        + '<img src="'+esc(img.src)+'" alt="'+esc(img.caption)+'" loading="lazy" />'
+        + (img.caption ? '<div class="gallery__caption">'+esc(img.caption)+'</div>' : '')
+        + '</div>';
+    }).join("");
+  } else {
+    galleryGrid.innerHTML = '<p class="gallery__empty">Photos coming soon.</p>';
+  }
+}
+
 /* ---------- scroll reveal ---------- */
 var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if("IntersectionObserver" in window && !reduce){

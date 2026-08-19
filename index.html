@@ -42,18 +42,14 @@
 <header class="nav" id="nav" data-open="false">
   <div class="wrap nav__in">
     <a class="brand" href="#top" aria-label="Krishna Green Foundation — home">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="#5F7A55" stroke-width="1"/>
-        <circle cx="20" cy="20" r="12.5" fill="none" stroke="#5F7A55" stroke-width="1"/>
-        <circle cx="20" cy="20" r="7" fill="none" stroke="#E0A32E" stroke-width="1.4"/>
-        <path d="M20 27 V13 M20 17 C16 15 14 12 14 12 M20 17 C24 15 26 12 26 12" fill="none" stroke="#152A1E" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
+      <img src="images/logo.jpeg" class="mark" alt="" />
       <span>Krishna&nbsp;<b>Green</b></span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#work">Our work</a>
       <a href="#approach">Approach</a>
+      <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -67,6 +63,7 @@
 <div class="mobile" id="mobileMenu">
   <a href="#work">Our work</a>
   <a href="#approach">Approach</a>
+  <a href="#gallery">Gallery</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <a class="btn" href="#contact">Start a project</a>
@@ -276,6 +273,15 @@
   </div>
 </section>
 
+<!-- ========================== GALLERY ========================== -->
+<section class="section gallery" id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <span class="eyebrow reveal">From the field</span>
+    <h2 id="gal-h" class="display reveal" style="font-size:clamp(30px,4.2vw,50px);color:var(--forest);margin-top:20px;max-width:22ch">A record of land coming back to life.</h2>
+    <div class="gallery__grid reveal" id="gallery-grid"><!-- injected by JS --></div>
+  </div>
+</section>
+
 <!-- ========================== CSR PROOF ========================== -->
 <section class="section proof" aria-labelledby="pr-h">
   <div class="wrap">
@@ -403,12 +409,7 @@
     <div class="foot__grid">
       <div>
         <a class="brand" href="#top">
-          <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
-            <circle cx="20" cy="20" r="18" fill="none" stroke="#5F7A55" stroke-width="1"/>
-            <circle cx="20" cy="20" r="12.5" fill="none" stroke="#5F7A55" stroke-width="1"/>
-            <circle cx="20" cy="20" r="7" fill="none" stroke="#E0A32E" stroke-width="1.4"/>
-            <path d="M20 27 V13 M20 17 C16 15 14 12 14 12 M20 17 C24 15 26 12 26 12" fill="none" stroke="#FBF8F1" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
+          <img src="images/logo.jpeg" class="mark" alt="" />
           <span>Krishna&nbsp;<b>Green</b></span>
         </a>
         <p class="foot__mission">Restoring forests across Andhra Pradesh and staying long enough to see them survive. A Section 8 non-profit and CSR implementation partner.</p>
@@ -417,6 +418,7 @@
         <h4>Explore</h4>
         <a href="#work">Our work</a>
         <a href="#approach">Approach</a>
+        <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
