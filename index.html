@@ -393,7 +393,11 @@
         <h2 id="gal-h" class="display reveal"
           style="font-size:clamp(30px,4.2vw,50px);color:var(--forest);margin-top:20px;max-width:22ch">A record of land
           coming back to life.</h2>
-        <div class="gallery__grid reveal" id="gallery-grid"><!-- injected by JS --></div>
+        <div class="gallery__carousel reveal">
+          <button class="gallery__arrow gallery__arrow--prev" id="galPrev" aria-label="Previous photos" disabled>&#8592;</button>
+          <div class="gallery__track" id="gallery-grid"><!-- injected by JS --></div>
+          <button class="gallery__arrow gallery__arrow--next" id="galNext" aria-label="Next photos">&#8594;</button>
+        </div>
       </div>
     </section>
 
