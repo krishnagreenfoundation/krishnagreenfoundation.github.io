@@ -24,14 +24,15 @@ Three files hold the entire site:
 `script.js` is structured in labelled blocks, top to bottom:
 - `SITES` array — single source of truth for all nine plantation sites (`no`, `name`, `loc`, `cat`, `acres`, `plants`)
 - `CAT` object — maps category keys (`reserve`, `park`, `urban`) to display strings
+- `fmt(n)` / `esc(s)` — `en-IN` locale number formatter and HTML-escape helper; use both whenever injecting data into innerHTML
 - `drawRegister(filter)` — renders site register rows from `SITES`; also recalculates the footer totals line
 - Filter buttons — update `aria-pressed` and call `drawRegister`
 - Case-study modal — `openCase(no)`, `closeCase()`, focus-trap, Escape key handler
 - Mobile nav toggle
-- Form validation — `setErr(id, on)` helper, submit handler (demo only — no real POST)
+- Form validation — `setErr(id, on)` helper, submit handler POSTs JSON to **Web3Forms** (`https://api.web3forms.com/submit`); the access key is embedded in `script.js` around line 158
 - `IMAGES` array + gallery render — 62 entries (`images/1.jpeg` … `images/62.jpeg`); injected into `#gallery-grid`
 - Gallery carousel — arrow buttons (`#galPrev`, `#galNext`) scroll the `#gallery-grid` track by one full viewport width; `syncArrows()` disables the relevant button at each end
-- Scroll-reveal via `IntersectionObserver`
+- Scroll-reveal via `IntersectionObserver` — any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically (falls back to `is-visible` immediately when `prefers-reduced-motion` is set)
 - Footer year
 
 ## Design tokens
@@ -45,6 +46,7 @@ All colours and fonts are CSS custom properties on `:root` in `styles.css`. The 
 - `--bone` — near-white green lightest surface, also text on dark sections (`#F4FAF1`)
 - `--soil` — near-black warm ink, body text
 - `--line` — greenish hairline on light surfaces (`#C5D8BE`)
+- `--line-dark` — hairline on dark section backgrounds (`#2E4737`)
 
 Fonts: Newsreader (serif display) · Instrument Sans (UI sans) · IBM Plex Mono (data/labels)
 
@@ -77,7 +79,6 @@ The `#founders` section (between About and Gallery) contains two `.founder` card
 - `[MAINTENANCE_PERIOD]` — in modal approach list
 - `[CSR-1 / 80G / 12A]` — compliance certificates in about section
 - `[PARTNER LOGO 1–4]` — CSR partner logos in the proof section
-- `[FORM_ENDPOINT]` + `[SPAM_PROTECTION]` — contact form is a demo; wire to a real backend before going live
 - Social links (`[LINKEDIN]`, `[INSTAGRAM]`) — commented out in nav, mobile menu, and footer
 - Gallery captions — all 62 images currently read "From the field"; update individual `caption` values in the `IMAGES` array once site attribution is known
 - Founder portraits — `images/` currently has no portrait photos; swap initials for `<img>` in the founder cards when available
