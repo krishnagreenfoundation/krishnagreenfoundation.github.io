@@ -4,36 +4,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Site overview
 
-Static single-page website for Krishna Green Foundation, a Section 8 non-profit and CSR implementation partner restoring forests across Andhra Pradesh. Hosted on GitHub Pages at `krishnagreenfoundation.com` (see `CNAME`).
+Static multi-page website for Krishna Green Foundation, a Section 8 non-profit and CSR implementation partner restoring forests across Andhra Pradesh. Hosted on GitHub Pages at `krishnagreenfoundation.com` (see `CNAME`).
 
-To preview, open `index.html` directly in a browser — no build step, no package manager, no dependencies beyond Google Fonts.
+To preview, open any `index.html` directly in a browser — no build step, no package manager, no dependencies beyond Google Fonts. Every asset and internal link uses relative paths with an explicit `index.html` filename (e.g. `work/index.html`, `../styles.css`) specifically so this works identically under `file://` and on GitHub Pages — don't switch these to root-relative (`/work/`) paths, that breaks local preview.
 
 ## File structure
 
-Three files hold the entire site:
+One `index.html` per menu section, plus shared assets at the root:
 
-- **`index.html`** — markup only; links `styles.css` and `script.js`
-- **`styles.css`** — all CSS (design tokens → global reset → one block per section)
-- **`script.js`** — all JavaScript (data arrays, register render, modal, gallery carousel, nav, form, scroll-reveal)
+- **`index.html`** (root) — Home: hero, impact stats, CSR proof, final CTA
+- **`work/index.html`** — site register (all nine sites, filterable) + capabilities + case-study modal
+- **`approach/index.html`** — the four-discipline "how we work" section
+- **`gallery/index.html`** — the photo carousel
+- **`about/index.html`** — About
+- **`founders/index.html`** — Founders
+- **`contact/index.html`** — contact form
+- **`styles.css`** — all CSS, shared by every page (design tokens → global reset → one block per section)
+- **`js/common.js`** — loaded on every page: `fmt()`/`esc()` helpers, mobile nav toggle, scroll-reveal, footer year
+- **`js/work.js`** — loaded only on `work/index.html`: `SITES`/`CAT` data, register render + filters, case-study modal
+- **`js/gallery.js`** — loaded only on `gallery/index.html`: `IMAGES` array, gallery render, carousel arrows
+- **`js/contact.js`** — loaded only on `contact/index.html`: form validation + Web3Forms submit
 - **`images/`** — site photos; `1.jpeg`–`62.jpeg` are the numbered field photos; `logo.jpeg` is the brand mark
+
+Each page's `<head>` is duplicated (title/description/OG tags per page, same fonts/favicon/JSON-LD), and each page's nav/footer markup is duplicated with `aria-current="page"` hardcoded onto that page's own nav link — there's no templating layer, so a nav or footer change must be repeated across all seven `index.html` files.
 
 ## Architecture
 
-`index.html` body sections (in page order): nav · hero · impact stats · site register · approach · capabilities · about · **founders** · gallery · CSR proof · final CTA · contact form · footer · case-study modal.
+Every page shares the same structure: skip-link → nav (+ mobile menu) → `<main id="main">` with that page's section(s) → footer → page-specific `<script>` tags (`js/common.js` always first).
 
-`script.js` is structured in labelled blocks, top to bottom:
-- `SITES` array — single source of truth for all nine plantation sites (`no`, `name`, `loc`, `cat`, `acres`, `plants`)
-- `CAT` object — maps category keys (`reserve`, `park`, `urban`) to display strings
-- `fmt(n)` / `esc(s)` — `en-IN` locale number formatter and HTML-escape helper; use both whenever injecting data into innerHTML
-- `drawRegister(filter)` — renders site register rows from `SITES`; also recalculates the footer totals line
-- Filter buttons — update `aria-pressed` and call `drawRegister`
-- Case-study modal — `openCase(no)`, `closeCase()`, focus-trap, Escape key handler
-- Mobile nav toggle
-- Form validation — `setErr(id, on)` helper, submit handler POSTs JSON to **Web3Forms** (`https://api.web3forms.com/submit`); the access key is embedded in `script.js` around line 158
-- `IMAGES` array + gallery render — 62 entries (`images/1.jpeg` … `images/62.jpeg`); injected into `#gallery-grid`
-- Gallery carousel — arrow buttons (`#galPrev`, `#galNext`) scroll the `#gallery-grid` track by one full viewport width; `syncArrows()` disables the relevant button at each end
-- Scroll-reveal via `IntersectionObserver` — any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically (falls back to `is-visible` immediately when `prefers-reduced-motion` is set)
-- Footer year
+- `js/work.js` — `SITES` array is the single source of truth for all nine plantation sites (`no`, `name`, `loc`, `cat`, `acres`, `plants`); `CAT` maps category keys (`reserve`, `park`, `urban`) to display strings; `drawRegister(filter)` renders register rows and recalculates the footer totals line; filter buttons update `aria-pressed` and call `drawRegister`; the case-study modal (`openCase(no)`, `closeCase()`) has a focus-trap and Escape handler, and its own `challengeText(cat)` copy generator
+- `js/gallery.js` — `IMAGES` array (62 entries, `../images/1.jpeg` … `../images/62.jpeg`) injected into `#gallery-grid`; carousel arrows (`#galPrev`, `#galNext`) scroll the track by one viewport width, `syncArrows()` disables the relevant button at each end
+- `js/contact.js` — `setErr(id, on)` validation helper, submit handler POSTs JSON to **Web3Forms** (`https://api.web3forms.com/submit`); the access key is embedded in this file
+- `js/common.js` — `fmt(n)`/`esc(s)` (`en-IN` locale number formatter and HTML-escape helper, used by `work.js` and `gallery.js`), mobile nav toggle, scroll-reveal via `IntersectionObserver` (any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically, falling back to `is-visible` immediately when `prefers-reduced-motion` is set), footer year
 
 ## Design tokens
 
@@ -48,27 +50,27 @@ All colours and fonts are CSS custom properties on `:root` in `styles.css`. The 
 - `--line` — greenish hairline on light surfaces (`#C5D8BE`)
 - `--line-dark` — hairline on dark section backgrounds (`#2E4737`)
 
-Fonts: Newsreader (serif display) · Instrument Sans (UI sans) · IBM Plex Mono (data/labels)
+Fonts: Fraunces (serif display) · Instrument Sans (UI sans) · Space Mono (data/labels)
 
 ## Adding or editing sites
 
-Edit the `SITES` array in `script.js`. Each entry:
+Edit the `SITES` array in `js/work.js`. Each entry:
 ```js
 {no:"01", name:'…', loc:"…", cat:"reserve"|"park"|"urban", acres:27, plants:24150}
 ```
-The register rows, filter footer totals, and modal detail all derive from this array automatically. Update the filter button counts in `index.html` manually if the category totals change.
+The register rows, filter footer totals, and modal detail all derive from this array automatically. Update the filter button counts in `work/index.html` manually if the category totals change.
 
 ## Adding gallery photos
 
-Add entries to the `IMAGES` array in `script.js` and drop the file in `images/`:
+Add entries to the `IMAGES` array in `js/gallery.js` and drop the file in `images/`:
 ```js
-{src:"images/filename.jpg", caption:"Site name — before/after"}
+{src:"../images/filename.jpg", caption:"Site name — before/after"}
 ```
 The gallery renders as a horizontal carousel (3 items visible on desktop, 2 at ≤900 px, 1 at ≤520 px). If `IMAGES` is empty the gallery shows "Photos coming soon."
 
 ## Founders section
 
-The `#founders` section (between About and Gallery) contains two `.founder` cards for Krishna Kishore Kammila and Krishna Sahithi Sakamuri. The circular `.founder__avatar` elements currently show initials (KK / KS) as placeholders — replace with `<img>` tags once portrait photos are available.
+`founders/index.html` contains two `.founder` cards for Krishna Kishore Kammila and Krishna Sahithi Sakamuri. The circular `.founder__avatar` elements currently show initials (KK / KS) as placeholders — replace with `<img>` tags once portrait photos are available.
 
 ## Placeholder content still needed
 

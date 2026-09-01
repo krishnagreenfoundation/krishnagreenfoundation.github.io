@@ -14,15 +14,16 @@
   <meta property="og:description"
     content="2,14,667 saplings across 9 sites and 297 acres in Andhra Pradesh. Every one still standing." />
   <meta property="og:image" content="[SOCIAL_SHARE_IMAGE_URL]" />
+  <meta property="og:url" content="https://www.krishnagreenfoundation.com/" />
   <meta name="theme-color" content="#152A1E" />
   <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="images/logo.jpeg" />
 
-  <!-- Fonts: Newsreader (editorial display) · Instrument Sans (UI) · IBM Plex Mono (register data) -->
+  <!-- Fonts: Fraunces (editorial display) · Instrument Sans (UI) · Space Mono (register data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -43,43 +44,43 @@
 </head>
 
 <body>
-  <a class="skip" href="#work">Skip to the work</a>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- ========================== NAV ========================== -->
   <header class="nav" id="nav" data-open="false">
     <div class="wrap nav__in">
-      <a class="brand" href="#top" aria-label="Krishna Green Foundation — home">
+      <a class="brand" href="index.html" aria-label="Krishna Green Foundation — home">
         <img src="images/logo.jpeg" class="mark" alt="" />
         <span>Krishna&nbsp;<b>Green</b>&nbsp;<b>Foundation</b></span>
       </a>
 
       <nav class="nav__links" aria-label="Primary">
-        <a href="#work">Our work</a>
-        <a href="#approach">Approach</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About</a>
-        <a href="#founders">Founders</a>
-        <a href="#contact">Contact</a>
+        <a href="work/index.html">Our work</a>
+        <a href="approach/index.html">Approach</a>
+        <a href="gallery/index.html">Gallery</a>
+        <a href="about/index.html">About</a>
+        <a href="founders/index.html">Founders</a>
+        <a href="contact/index.html">Contact</a>
       </nav>
 
       <div class="nav__cta">
-        <a class="btn" href="#contact">Start a project <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn" href="contact/index.html">Start a project <span class="arw" aria-hidden="true">→</span></a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu"
           aria-label="Open menu"><span></span></button>
       </div>
     </div>
   </header>
   <div class="mobile" id="mobileMenu">
-    <a href="#work">Our work</a>
-    <a href="#approach">Approach</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#founders">Founders</a>
-    <a href="#contact">Contact</a>
-    <a class="btn" href="#contact">Start a project</a>
+    <a href="work/index.html">Our work</a>
+    <a href="approach/index.html">Approach</a>
+    <a href="gallery/index.html">Gallery</a>
+    <a href="about/index.html">About</a>
+    <a href="founders/index.html">Founders</a>
+    <a href="contact/index.html">Contact</a>
+    <a class="btn" href="contact/index.html">Start a project</a>
   </div>
 
-  <main id="top">
+  <main id="main">
 
     <!-- ========================== HERO ========================== -->
     <section class="hero" aria-labelledby="hero-h">
@@ -114,8 +115,8 @@
           297 acres and nine sites, with 100% survival recorded.
         </p>
         <div class="hero__cta">
-          <a class="btn" href="#work">Explore the sites <span class="arw" aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="#approach">How we work</a>
+          <a class="btn" href="work/index.html">Explore the sites <span class="arw" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="approach/index.html">How we work</a>
         </div>
         <div class="hero__meta">
           <span><b>9</b> sites</span><span class="dot" aria-hidden="true"></span>
@@ -123,12 +124,12 @@
           <span><b>2,14,667</b> saplings</span><span class="dot" aria-hidden="true"></span>
           <span><b>100%</b> survival</span>
         </div>
-        <div class="scrollcue"><span aria-hidden="true"></span> Scroll to the register</div>
+        <a class="scrollcue" href="#impact"><span aria-hidden="true"></span> Scroll for the impact</a>
       </div>
     </section>
 
     <!-- ========================== IMPACT ========================== -->
-    <section class="impact section" aria-labelledby="impact-h">
+    <section class="impact section" id="impact" aria-labelledby="impact-h">
       <div class="wrap">
         <span class="eyebrow eyebrow--onDark">Impact at a glance</span>
         <h2 id="impact-h" class="display lede lede--onDark"
@@ -156,260 +157,6 @@
         </div>
         <p class="impact__note">Figures as recorded in the plantation register across all nine sites. Monitoring method:
           [MONITORING_METHOD — e.g. quarterly on-ground survival audit].</p>
-      </div>
-    </section>
-
-    <!-- ========================== SITE REGISTER / WORK ========================== -->
-    <section class="section" id="work" aria-labelledby="work-h">
-      <div class="wrap">
-        <div class="reg__head reveal">
-          <div>
-            <span class="eyebrow">The site register</span>
-            <h2 id="work-h" class="display">Nine restorations. Open the register to read any one.</h2>
-          </div>
-          <div class="filters" role="group" aria-label="Filter sites by type">
-            <button data-filter="all" aria-pressed="true">All · 9</button>
-            <button data-filter="reserve" aria-pressed="false">Reserve forest · 5</button>
-            <button data-filter="park" aria-pressed="false">Eco-tourism park · 2</button>
-            <button data-filter="urban" aria-pressed="false">Urban forest · 2</button>
-          </div>
-        </div>
-
-        <div class="register" id="register"><!-- rows injected by JS --></div>
-        <p class="reg__foot" id="regFoot">Showing all 9 sites · 297 acres · 2,14,667 saplings. Site areas as recorded in
-          the plantation register.</p>
-      </div>
-    </section>
-
-    <hr class="rule" />
-
-    <!-- ========================== APPROACH ========================== -->
-    <section class="section approach" id="approach" aria-labelledby="ap-h">
-      <div class="wrap">
-        <span class="eyebrow reveal">How we work</span>
-        <h2 id="ap-h" class="display reveal">Survival isn't luck. It's four disciplines, held from soil to canopy.</h2>
-
-        <div class="steps reveal">
-          <div class="step">
-            <svg class="step__ic" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <path d="M8 30 L20 8 L32 30 Z" stroke="currentColor" stroke-width="1.6" />
-              <path d="M14 30 L26 30" stroke="#E0A32E" stroke-width="1.6" />
-              <circle cx="20" cy="24" r="2" fill="#E0A32E" />
-            </svg>
-            <div class="step__no">01 — Assess</div>
-            <h3>Assess the land</h3>
-            <p>We survey soil, water and the existing ecology of each reserve-forest compartment or park before a single
-              pit is dug — so the plan fits the ground, not the other way around.</p>
-          </div>
-          <div class="step">
-            <svg class="step__ic" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <rect x="8" y="20" width="24" height="12" stroke="currentColor" stroke-width="1.6" />
-              <path d="M12 20 V14 M20 20 V12 M28 20 V14" stroke="#E0A32E" stroke-width="1.6" />
-            </svg>
-            <div class="step__no">02 — Prepare</div>
-            <h3>Prepare &amp; select</h3>
-            <p>Pitting, soil work and fencing come first, and we choose native, site-suited species [KEY_SPECIES] raised
-              to plantable size — the two decisions that most determine whether saplings live.</p>
-          </div>
-          <div class="step">
-            <svg class="step__ic" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <path d="M20 32 V16" stroke="currentColor" stroke-width="1.6" />
-              <path d="M20 20 C13 18 10 12 10 12 C17 12 20 16 20 16 M20 22 C27 20 30 14 30 14 C23 14 20 18 20 18"
-                stroke="#E0A32E" stroke-width="1.6" />
-            </svg>
-            <div class="step__no">03 — Plant</div>
-            <h3>Plant with the monsoon</h3>
-            <p>Planting is timed to the rains and executed at scale — the reason a 35-acre compartment can go from bare
-              to 35,000 established saplings in a single season.</p>
-          </div>
-          <div class="step">
-            <svg class="step__ic" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="1.6" />
-              <circle cx="20" cy="20" r="5.5" stroke="#E0A32E" stroke-width="1.6" />
-              <circle cx="20" cy="20" r="1.6" fill="#E0A32E" />
-            </svg>
-            <div class="step__no">04 — Nurture</div>
-            <h3>Nurture &amp; verify</h3>
-            <p>We water, weed, protect and re-fill gaps through the vulnerable early years, and record survival site by
-              site. The 100% figure is an outcome we measure, not a claim we make.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================== CAPABILITIES ========================== -->
-    <section class="section caps" aria-labelledby="cap-h">
-      <div class="wrap">
-        <span class="eyebrow reveal">What we take on</span>
-        <h2 id="cap-h" class="display reveal"
-          style="font-size:clamp(30px,4.2vw,50px);color:var(--forest);margin-top:20px;max-width:22ch">Three kinds of
-          green cover, one standard of care.</h2>
-
-        <div class="caps__grid reveal">
-          <article class="cap">
-            <svg class="cap__ring" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.4" />
-              <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.4" />
-              <path d="M20 26 V16" stroke="#152A1E" stroke-width="1.6" />
-            </svg>
-            <h3>Reserve forest restoration</h3>
-            <p>Reviving degraded and open reserve-forest compartments and forest beats with dense native planting — the
-              core of our work.</p>
-            <div class="cap__data">
-              <div><b>5</b> sites</div>
-              <div><b>136</b> acres</div>
-              <div><b>1,21,110</b> saplings</div>
-            </div>
-          </article>
-          <article class="cap">
-            <svg class="cap__ring" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.4" />
-              <path d="M8 24 Q20 14 32 24" stroke="currentColor" stroke-width="1.4" />
-              <path d="M20 28 V18" stroke="#152A1E" stroke-width="1.6" />
-            </svg>
-            <h3>Eco-tourism park greening</h3>
-            <p>Establishing lasting tree cover across public eco-tourism parks, so restored land becomes space people
-              can walk into.</p>
-            <div class="cap__data">
-              <div><b>2</b> sites</div>
-              <div><b>98</b> acres</div>
-              <div><b>53,320</b> saplings</div>
-            </div>
-          </article>
-          <article class="cap">
-            <svg class="cap__ring" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <rect x="10" y="10" width="20" height="20" stroke="currentColor" stroke-width="1.4" />
-              <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.4" />
-            </svg>
-            <h3>Urban forests · Nagaravanam</h3>
-            <p>Dense urban and peri-urban forests under the Nagaravanam model — green lungs planted close to where
-              communities live.</p>
-            <div class="cap__data">
-              <div><b>2</b> sites</div>
-              <div><b>62</b> acres</div>
-              <div><b>40,237</b> saplings</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================== ABOUT ========================== -->
-    <section class="section" id="about" aria-labelledby="ab-h">
-      <div class="wrap" style="max-width:840px">
-        <span class="eyebrow reveal">About</span>
-        <h2 id="ab-h" class="display reveal"
-          style="font-size:clamp(28px,4vw,46px);color:var(--forest);margin-top:20px;line-height:1.1">
-          A Section 8 non-profit built to be a serious CSR implementation partner — measured on what lives, not what's
-          launched.
-        </h2>
-        <p class="lede reveal" style="margin-top:26px">
-          Krishna Green Foundation is a not-for-profit (Section 8) company and CSR implementation
-          partner working across Andhra Pradesh. We take on afforestation and greening projects on
-          behalf of funders and forest agencies, and hold ourselves to a single, verifiable standard:
-          the saplings we plant have to survive. Across nine sites and 297 acres, they have.
-        </p>
-
-        <div class="reveal"
-          style="margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden">
-          <div style="background:var(--parch);padding:22px 24px">
-            <div
-              style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7a7260">
-              Structure</div>
-            <div style="font-family:var(--serif);font-size:20px;color:var(--forest);margin-top:8px">Section 8 non-profit
-              company</div>
-          </div>
-          <div style="background:var(--parch);padding:22px 24px">
-            <div
-              style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7a7260">
-              Model</div>
-            <div style="font-family:var(--serif);font-size:20px;color:var(--forest);margin-top:8px">CSR implementation
-              partner</div>
-          </div>
-          <div style="background:var(--parch);padding:22px 24px">
-            <div
-              style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7a7260">
-              Region</div>
-            <div style="font-family:var(--serif);font-size:20px;color:var(--forest);margin-top:8px">Andhra Pradesh,
-              India</div>
-          </div>
-          <div style="background:var(--parch);padding:22px 24px">
-            <div
-              style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7a7260">
-              Compliance</div>
-            <div style="font-family:var(--serif);font-size:20px;color:var(--forest);margin-top:8px">[CSR-1 / 80G / 12A —
-              add details]</div>
-          </div>
-        </div>
-
-        <h3 class="reveal" style="font-family:var(--serif);font-size:24px;color:var(--forest);margin-top:48px">How we
-          plan, deliver and measure</h3>
-        <p class="reveal" style="margin-top:14px;color:#4a4335;line-height:1.6">
-          Every project follows the same four disciplines — assess, prepare, plant, nurture — and every
-          site enters a register with its area, sapling count and recorded survival. That register is the
-          version of transparency we can stand behind: a funder can point to a specific compartment and
-          see exactly what was planted there and how much of it lived.
-        </p>
-      </div>
-    </section>
-
-    <!-- ========================== FOUNDERS ========================== -->
-    <section class="section founders" id="founders" aria-labelledby="fn-h">
-      <div class="wrap">
-        <span class="eyebrow reveal">Our Founders</span>
-        <h2 id="fn-h" class="display reveal"
-          style="font-size:clamp(28px,4vw,46px);color:var(--forest);margin-top:20px;max-width:30ch;line-height:1.1">
-          Meet the leaders guiding Krishna Green Foundation's commitment to environmental responsibility, community
-          participation, and sustainable change.
-        </h2>
-
-        <div class="founders__grid reveal">
-          <article class="founder">
-            <div class="founder__avatar" role="img" aria-label="Portrait placeholder for Krishna Kishore Kammila">KK
-            </div>
-            <div class="founder__meta">
-              <div class="founder__role">Founder &amp; Director</div>
-              <h3 class="founder__name">Krishna Kishore Kammila</h3>
-            </div>
-            <p>Krishna Kishore Kammila is a Founder and Director of Krishna Green Foundation. He is committed to
-              advancing the Foundation's vision of a cleaner, greener, and more sustainable future. Through his
-              leadership, he supports initiatives that encourage environmental responsibility, community participation,
-              and meaningful action for the planet.</p>
-            <p>His work reflects a belief that lasting environmental change begins with awareness, collaboration, and
-              practical solutions at the community level.</p>
-          </article>
-
-          <article class="founder">
-            <div class="founder__avatar" role="img" aria-label="Portrait placeholder for Krishna Sahithi Sakamuri">KS
-            </div>
-            <div class="founder__meta">
-              <div class="founder__role">Founder &amp; Director</div>
-              <h3 class="founder__name">Krishna Sahithi Sakamuri</h3>
-            </div>
-            <p>Krishna Sahithi Sakamuri is a Founder and Director of Krishna Green Foundation. She is passionate about
-              creating positive environmental and social impact through community-focused sustainability initiatives.
-            </p>
-            <p>As a leader of the Foundation, she helps shape its mission to inspire people to care for the environment
-              and contribute to a healthier future. Her commitment reflects the belief that collective action,
-              education, and everyday choices can create lasting change.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================== GALLERY ========================== -->
-    <section class="section gallery" id="gallery" aria-labelledby="gal-h">
-      <div class="wrap">
-        <span class="eyebrow reveal">From the field</span>
-        <h2 id="gal-h" class="display reveal"
-          style="font-size:clamp(30px,4.2vw,50px);color:var(--forest);margin-top:20px;max-width:22ch">A record of land
-          coming back to life.</h2>
-        <div class="gallery__carousel reveal">
-          <button class="gallery__arrow gallery__arrow--prev" id="galPrev" aria-label="Previous photos"
-            disabled>&#8592;</button>
-          <div class="gallery__track" id="gallery-grid"><!-- injected by JS --></div>
-          <button class="gallery__arrow gallery__arrow--next" id="galNext" aria-label="Next photos">&#8594;</button>
-        </div>
       </div>
     </section>
 
@@ -446,103 +193,10 @@
         <p class="lede reveal" style="margin-inline:auto">Whether you're a CSR programme, a forest agency or a community
           with degraded land, start with a conversation. We'll tell you honestly what the site can carry.</p>
         <div class="hero__cta reveal">
-          <a class="btn btn--gold" href="#contact">Start a conversation <span class="arw"
+          <a class="btn btn--gold" href="contact/index.html">Start a conversation <span class="arw"
               aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="#work">See the work first</a>
+          <a class="btn btn--ghost" href="work/index.html">See the work first</a>
         </div>
-      </div>
-    </section>
-
-    <!-- ========================== CONTACT ========================== -->
-    <section class="section contact" id="contact" aria-labelledby="ct-h">
-      <div class="wrap contact__grid">
-        <div class="reveal">
-          <span class="eyebrow">Contact</span>
-          <h2 id="ct-h" class="display">Tell us about the land, or the goal.</h2>
-          <p class="lede contact__lede">Share a few details and we'll get back to you. There are no wrong questions — if
-            you're only exploring whether a plot can be reforested, that's exactly the conversation to start.</p>
-          <div class="contact__list">
-            <div><span>Email</span> krishnagreenfoundation@gmail.com</div>
-            <div><span>Phone</span> +91-9966008787</div>
-            <div><span>Office</span> Vijayawada, Andhra Pradesh, India</div>
-            <!-- <div><span>Social</span> [LINKEDIN] · [INSTAGRAM]</div> -->
-          </div>
-        </div>
-
-        <form class="form reveal" id="form" novalidate>
-          <div class="form__body">
-            <div class="row2">
-              <div class="field" id="f-name">
-                <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-                <input id="name" name="name" type="text" autocomplete="name" aria-required="true"
-                  aria-describedby="e-name" />
-                <p class="err" id="e-name">Please tell us your name.</p>
-              </div>
-              <div class="field" id="f-email">
-                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" aria-required="true"
-                  aria-describedby="e-email" />
-                <p class="err" id="e-email">Enter a valid email address.</p>
-              </div>
-            </div>
-
-            <div class="field" id="f-org">
-              <label for="org">Organization</label>
-              <input id="org" name="org" type="text" autocomplete="organization" />
-            </div>
-
-            <div class="row2">
-              <div class="field" id="f-type">
-                <label for="ptype">Project type <span class="req" aria-hidden="true">*</span></label>
-                <select id="ptype" name="ptype" aria-required="true" aria-describedby="e-type">
-                  <option value="">Select…</option>
-                  <option>Reserve forest restoration</option>
-                  <option>Eco-tourism park greening</option>
-                  <option>Urban forest (Nagaravanam)</option>
-                  <option>CSR partnership</option>
-                  <option>Something else</option>
-                </select>
-                <p class="err" id="e-type">Please choose a project type.</p>
-              </div>
-              <div class="field" id="f-budget">
-                <label for="budget">Budget range <span
-                    style="text-transform:none;letter-spacing:0;color:#9a9078">(optional)</span></label>
-                <select id="budget" name="budget">
-                  <option value="">Prefer not to say</option>
-                  <option>Under ₹5 lakh</option>
-                  <option>₹5–25 lakh</option>
-                  <option>₹25 lakh – ₹1 crore</option>
-                  <option>Over ₹1 crore</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field" id="f-msg">
-              <label for="msg">Message <span class="req" aria-hidden="true">*</span></label>
-              <textarea id="msg" name="msg" aria-required="true" aria-describedby="e-msg"
-                placeholder="Location, rough area, and what you're hoping to do…"></textarea>
-              <p class="err" id="e-msg">A short message helps us respond well.</p>
-            </div>
-
-            <div class="field check" id="f-consent">
-              <input id="consent" name="consent" type="checkbox" aria-required="true" aria-describedby="e-consent" />
-              <label for="consent"
-                style="text-transform:none;letter-spacing:0;font-family:var(--sans);color:#4a4335;margin:0">
-                I agree that Krishna Green Foundation may contact me about this enquiry. <span class="req"
-                  aria-hidden="true">*</span>
-                <span class="err" id="e-consent" style="margin-top:6px">Please tick to continue.</span>
-              </label>
-            </div>
-
-            <button class="btn btn--gold" type="submit" id="submit" style="width:100%;justify-content:center">Send
-              enquiry <span class="arw" aria-hidden="true">→</span></button>
-          </div>
-
-          <div class="form__ok" id="ok" role="status" aria-live="polite">
-            <b>Thank you — your enquiry has been sent.</b>
-            We'll review your message and reply within a few working days.
-          </div>
-        </form>
       </div>
     </section>
   </main>
@@ -552,7 +206,7 @@
     <div class="wrap">
       <div class="foot__grid">
         <div>
-          <a class="brand" href="#top">
+          <a class="brand" href="index.html">
             <img src="images/logo.jpeg" class="mark" alt="" />
             <span>Krishna&nbsp;<b>Green</b>&nbsp;<b>Foundation</b></span>
           </a>
@@ -561,12 +215,12 @@
         </div>
         <div>
           <h4>Explore</h4>
-          <a href="#work">Our work</a>
-          <a href="#approach">Approach</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#about">About</a>
-          <a href="#founders">Founders</a>
-          <a href="#contact">Contact</a>
+          <a href="work/index.html">Our work</a>
+          <a href="approach/index.html">Approach</a>
+          <a href="gallery/index.html">Gallery</a>
+          <a href="about/index.html">About</a>
+          <a href="founders/index.html">Founders</a>
+          <a href="contact/index.html">Contact</a>
         </div>
         <div>
           <h4>Reach us</h4>
@@ -583,17 +237,7 @@
     </div>
   </footer>
 
-  <!-- ========================== CASE-STUDY MODAL ========================== -->
-  <div class="modal" id="modal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="md-title"
-    aria-hidden="true">
-    <div class="modal__scrim" data-close></div>
-    <div class="modal__panel">
-      <button class="modal__x" id="modalX" aria-label="Close">×</button>
-      <div class="md" id="mdBody"><!-- injected --></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/common.js"></script>
 </body>
 
 </html>
