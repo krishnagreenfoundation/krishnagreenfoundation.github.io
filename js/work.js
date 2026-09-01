@@ -86,7 +86,7 @@ if (register) {
       + '</ul></section>'
       + '<section><h4>What we delivered</h4><p>' + fmt(s.acres) + ' acres restored and ' + fmt(s.plants) + ' native saplings established, with survival tracked site-wide and recorded at 100%.</p></section>'
       + '<section><h4>Results &amp; impact</h4><p>100% survival recorded across the site. <span style="color:#9a9078">[Add further verifiable outcomes — canopy, species count, community benefit — only where measured.]</span></p></section>'
-      + '<div class="md__cta"><a class="btn btn--gold" href="../contact/index.html" data-close>Discuss a project like this <span class="arw" aria-hidden="true">→</span></a></div>';
+      + '<div class="md__cta"><a class="btn btn--gold" href="/contact/" data-close>Discuss a project like this <span class="arw" aria-hidden="true">→</span></a></div>';
 
     modal.setAttribute("data-open", "true");
     modal.setAttribute("aria-hidden", "false");

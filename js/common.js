@@ -1,3 +1,6 @@
+/* ---------- disable right-click context menu ---------- */
+document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+
 /* ---------- shared helpers (loaded on every page) ---------- */
 var fmt = function (n) { return n.toLocaleString("en-IN"); };
 var esc = function (s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); };

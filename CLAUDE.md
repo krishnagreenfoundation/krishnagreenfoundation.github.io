@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static multi-page website for Krishna Green Foundation, a Section 8 non-profit and CSR implementation partner restoring forests across Andhra Pradesh. Hosted on GitHub Pages at `krishnagreenfoundation.com` (see `CNAME`).
 
-To preview, open any `index.html` directly in a browser — no build step, no package manager, no dependencies beyond Google Fonts. Every asset and internal link uses relative paths with an explicit `index.html` filename (e.g. `work/index.html`, `../styles.css`) specifically so this works identically under `file://` and on GitHub Pages — don't switch these to root-relative (`/work/`) paths, that breaks local preview.
+To preview a single page, open its `index.html` directly in a browser — no build step, no package manager, no dependencies beyond Google Fonts. Assets (`styles.css`, `js/*.js`, `images/*`) use relative paths with an explicit filename (e.g. `../styles.css`) so a page's own assets always load under `file://`. Navigation links (nav, mobile menu, footer, all CTAs) are root-relative directory paths instead (`/work/`, `/contact/`, brand → `/`) so the deployed site never shows `index.html` in the address bar — GitHub Pages serves `work/index.html` for a request to `/work/`. This means clicking between pages only works when served from a real web root (GitHub Pages, or a local static server rooted at the repo) — under plain `file://` a nav click will fail, since `/work/` resolves to the filesystem root, not the repo folder. When testing multi-page navigation locally, run a static server (e.g. `npx serve` or `python -m http.server`) from the repo root instead of double-clicking files.
+
+Right-click (`contextmenu`) is disabled site-wide via `js/common.js` — this is a basic deterrent only, not real content protection (view-source, dev tools, and keyboard shortcuts still work).
 
 ## File structure
 
@@ -20,7 +22,7 @@ One `index.html` per menu section, plus shared assets at the root:
 - **`founders/index.html`** — Founders
 - **`contact/index.html`** — contact form
 - **`styles.css`** — all CSS, shared by every page (design tokens → global reset → one block per section)
-- **`js/common.js`** — loaded on every page: `fmt()`/`esc()` helpers, mobile nav toggle, scroll-reveal, footer year
+- **`js/common.js`** — loaded on every page: right-click disable, `fmt()`/`esc()` helpers, mobile nav toggle, scroll-reveal, footer year
 - **`js/work.js`** — loaded only on `work/index.html`: `SITES`/`CAT` data, register render + filters, case-study modal
 - **`js/gallery.js`** — loaded only on `gallery/index.html`: `IMAGES` array, gallery render, carousel arrows
 - **`js/contact.js`** — loaded only on `contact/index.html`: form validation + Web3Forms submit
