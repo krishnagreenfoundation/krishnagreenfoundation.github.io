@@ -91,7 +91,7 @@ The gallery renders as a horizontal carousel (3 items visible on desktop, 2 at �
 - `[KEY_SPECIES]` — native species names in approach step and modal
 - `[PLANTING_YEAR]` — per-site in modal detail
 - `[MAINTENANCE_PERIOD]` — in modal approach list
-- `[CSR-1 / 80G / 12A]` — compliance certificates in about section
+- `[80G / 12A]` — income-tax exemption certificates (still pending; CIN U94990AP2026NPL128077 and Section 8 Licence 191456 are already reflected in `about/index.html`)
 - `[PARTNER LOGO 1–4]` — CSR partner logos in the proof section
 - Social links (`[LINKEDIN]`, `[INSTAGRAM]`) — commented out in nav, mobile menu, and footer
 - Gallery captions — all 62 images currently read "From the field"; update individual `caption` values in the `IMAGES` array once site attribution is known
