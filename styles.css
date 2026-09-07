@@ -18,7 +18,7 @@
   --line:     #C5D8BE;   /* greenish hairline on light                           */
   --line-dark:#2E4737;   /* hairline on dark                                     */
 
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans:  "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono:  "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -33,7 +33,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--parch); color:var(--soil);
-  font-family:var(--sans); font-size:17px; line-height:1.6;
+  font-family:var(--sans); font-size:16px; line-height:1.6;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 img,svg{display:block; max-width:100%}
@@ -60,8 +60,8 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
 .eyebrow--onDark{color:var(--marigold)}
 .eyebrow--onDark::before{background:var(--marigold)}
 
-.display{font-family:var(--serif); line-height:1.02; letter-spacing:-.02em}
-.lede{font-size:clamp(18px,2.1vw,21px); line-height:1.55; color:#4a4335; max-width:56ch}
+.display{font-family:var(--serif); line-height:1.1; letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.8vw,19px); line-height:1.65; color:#4a4335; max-width:56ch}
 .lede--onDark{color:#cdd6c8}
 
 .section{padding-block:clamp(72px,10vw,132px)}
@@ -134,7 +134,7 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
 }
 .hero__in{position:relative; z-index:1; max-width:900px}
 .hero h1{
-  font-size:clamp(40px,7.4vw,88px); margin-top:26px; color:var(--forest);
+  font-size:clamp(34px,5.6vw,68px); margin-top:26px; color:var(--forest);
 }
 .hero h1 em{font-style:italic; color:var(--amber-ink)}
 .hero h1 .grow{position:relative; white-space:nowrap}
@@ -397,7 +397,7 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
    FINAL CTA
    ========================================================================== */
 .finalcta{text-align:center; padding-block:clamp(80px,11vw,150px)}
-.finalcta h2{font-family:var(--serif); font-size:clamp(34px,5.6vw,68px); color:var(--forest); max-width:16ch; margin-inline:auto; line-height:1.04}
+.finalcta h2{font-family:var(--serif); font-size:clamp(34px,5.6vw,68px); color:var(--forest); max-width:16ch; margin-inline:auto; line-height:1.1}
 .finalcta p{margin:24px auto 0; max-width:46ch}
 .finalcta .hero__cta{justify-content:center; margin-top:38px}
 
@@ -481,6 +481,37 @@ h1,h2,h3,h4{margin:0; font-weight:400; letter-spacing:-.01em}
 .md ul{margin:0; padding-left:18px}
 .md li{font-size:15.5px; color:#3f3928; line-height:1.55; margin-bottom:8px}
 .md__cta{margin-top:36px; padding-top:26px; border-top:1px solid var(--line)}
+
+/* ===========================================================================
+   NEWS TICKER
+   ========================================================================== */
+.ticker{
+  position:sticky; top:70px; z-index:98;
+  background:var(--forest); color:var(--bone);
+  height:34px; overflow:hidden; display:flex; align-items:center;
+}
+.ticker__label{
+  flex-shrink:0; background:var(--marigold); color:var(--forest);
+  font-family:var(--mono); font-size:10px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:0 14px; height:100%; display:flex; align-items:center; white-space:nowrap;
+}
+.ticker__wrap{flex:1; overflow:hidden; position:relative}
+.ticker__track{
+  display:inline-flex; align-items:center; white-space:nowrap;
+  animation:tickerScroll 60s linear infinite; will-change:transform;
+}
+.ticker__track:hover{animation-play-state:paused}
+.ticker__item{
+  font-family:var(--mono); font-size:11px; color:var(--bone); opacity:.88;
+  text-decoration:none; padding-inline:2px; transition:opacity .2s, color .2s;
+}
+.ticker__item:hover{opacity:1; color:var(--marigold)}
+.ticker__sep{padding-inline:20px; color:var(--marigold); opacity:.5; font-size:10px}
+@keyframes tickerScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
 
 /* ===========================================================================
    SCROLL REVEAL (respects reduced motion below)

@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Development commands
+
+No build step or package manager. To test multi-page navigation locally, serve from the repo root:
+
+```bash
+npx serve .          # or: python -m http.server 8000
+```
+
+Then open `http://localhost:3000` (serve) or `http://localhost:8000` (python). Root-relative nav links (`/work/`, `/contact/`) only resolve correctly under a real web root — not `file://`.
+
 ## Site overview
 
 Static multi-page website for Krishna Green Foundation, a Section 8 non-profit and CSR implementation partner restoring forests across Andhra Pradesh. Hosted on GitHub Pages at `krishnagreenfoundation.com` (see `CNAME`).
