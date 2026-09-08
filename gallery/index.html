@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO / social ................................................................ -->
   <title>Gallery — Krishna Green Foundation</title>
   <meta name="description"
     content="Photos from the field: forest restoration sites across Andhra Pradesh, from bare land to established canopy." />
@@ -18,7 +17,6 @@
   <link rel="icon" href="../images/logo.jpeg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="../images/logo.jpeg" />
 
-  <!-- Fonts: Playfair Display (editorial display) · Instrument Sans (UI) · Space Mono (register data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -26,7 +24,6 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 
-  <!-- Organization schema -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,7 +49,6 @@
         <img src="../images/logo.jpeg" class="mark" alt="" />
         <span>Krishna&nbsp;<b>Green</b>&nbsp;<b>Foundation</b></span>
       </a>
-
       <nav class="nav__links" aria-label="Primary">
         <a href="/work/">Our work</a>
         <a href="/approach/">Approach</a>
@@ -61,7 +57,6 @@
         <a href="/founders/">Founders</a>
         <a href="/contact/">Contact</a>
       </nav>
-
       <div class="nav__cta">
         <a class="btn" href="/contact/">Start a project <span class="arw" aria-hidden="true">→</span></a>
         <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu"
@@ -86,21 +81,43 @@
 
   <main id="main">
 
+    <!-- ========================== PAGE BANNER ========================== -->
+    <section class="page-banner" aria-labelledby="gal-banner-h">
+      <div class="wrap">
+        <span class="eyebrow eyebrow--onDark">From the field</span>
+        <h1 id="gal-banner-h" class="page-banner__h1">A record of land<br>coming back to life.</h1>
+        <p class="lede lede--onDark" style="margin-top:16px;max-width:50ch">
+          62 photos across nine sites — reserve forests, eco-tourism parks and urban forests in Andhra Pradesh.
+          Every image is from a real planting site, not a stock library.
+        </p>
+      </div>
+    </section>
+
     <!-- ========================== GALLERY ========================== -->
     <section class="section gallery" aria-labelledby="gal-h">
       <div class="wrap">
-        <span class="eyebrow reveal">From the field</span>
-        <h2 id="gal-h" class="display reveal"
-          style="font-size:clamp(30px,4.2vw,50px);color:var(--forest);margin-top:20px;max-width:22ch">A record of land
-          coming back to life.</h2>
         <div class="gallery__carousel reveal">
           <button class="gallery__arrow gallery__arrow--prev" id="galPrev" aria-label="Previous photos"
             disabled>&#8592;</button>
           <div class="gallery__track" id="gallery-grid"><!-- injected by JS --></div>
           <button class="gallery__arrow gallery__arrow--next" id="galNext" aria-label="Next photos">&#8594;</button>
         </div>
+        <p class="gallery__note" id="gal-h">Scroll or use the arrows to browse all 62 field photos. Captions are being updated with per-site attribution.</p>
       </div>
     </section>
+
+    <!-- ========================== CLOSING CTA ========================== -->
+    <section class="page-cta" aria-labelledby="gcta-h">
+      <div class="wrap">
+        <h2 id="gcta-h" class="display">Behind every photo — a case study.</h2>
+        <p>Each image is from one of our nine registered sites. Open the site register to see the full data: area, saplings planted and survival recorded.</p>
+        <div class="hero__cta">
+          <a class="btn btn--onDark" href="/work/">View the site register <span class="arw" aria-hidden="true">→</span></a>
+          <a class="btn btn--onDark btn--ghost" href="/contact/">Start a project</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ========================== FOOTER ========================== -->
@@ -128,8 +145,6 @@
           <h4>Reach us</h4>
           <a href="mailto:krishnagreenfoundation@gmail.com">krishnagreenfoundation@gmail.com</a>
           <a href="tel:+91-9966008787">+91-9966008787</a>
-          <!-- <a href="#">[LINKEDIN]</a>
-        <a href="#">[INSTAGRAM]</a> -->
         </div>
       </div>
       <div class="foot__bar">

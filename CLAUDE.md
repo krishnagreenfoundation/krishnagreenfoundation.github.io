@@ -47,7 +47,7 @@ Every page shares the same structure: skip-link → nav (+ mobile menu) → `<ma
 - `js/work.js` — `SITES` array is the single source of truth for all nine plantation sites (`no`, `name`, `loc`, `cat`, `acres`, `plants`); `CAT` maps category keys (`reserve`, `park`, `urban`) to display strings; `drawRegister(filter)` renders register rows and recalculates the footer totals line; filter buttons update `aria-pressed` and call `drawRegister`; the case-study modal (`openCase(no)`, `closeCase()`) has a focus-trap and Escape handler, and its own `challengeText(cat)` copy generator
 - `js/gallery.js` — `IMAGES` array (62 entries, `../images/1.jpeg` … `../images/62.jpeg`) injected into `#gallery-grid`; carousel arrows (`#galPrev`, `#galNext`) scroll the track by one viewport width, `syncArrows()` disables the relevant button at each end
 - `js/contact.js` — `setErr(id, on)` validation helper, submit handler POSTs JSON to **Web3Forms** (`https://api.web3forms.com/submit`); the access key is embedded in this file
-- `js/common.js` — `fmt(n)`/`esc(s)` (`en-IN` locale number formatter and HTML-escape helper, used by `work.js` and `gallery.js`), mobile nav toggle, scroll-reveal via `IntersectionObserver` (any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically, falling back to `is-visible` immediately when `prefers-reduced-motion` is set), footer year
+- `js/common.js` — `fmt(n)`/`esc(s)` (`en-IN` locale number formatter and HTML-escape helper, used by `work.js` and `gallery.js`), mobile nav toggle, scroll-reveal via `IntersectionObserver` (any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically, falling back to `is-visible` immediately when `prefers-reduced-motion` is set), footer year, and the **news ticker** (see below)
 
 ## Design tokens
 
@@ -62,7 +62,7 @@ All colours and fonts are CSS custom properties on `:root` in `styles.css`. The 
 - `--line` — greenish hairline on light surfaces (`#C5D8BE`)
 - `--line-dark` — hairline on dark section backgrounds (`#2E4737`)
 
-Fonts: Fraunces (serif display) · Instrument Sans (UI sans) · Space Mono (data/labels)
+Fonts: Playfair Display (serif display) · Instrument Sans (UI sans) · Space Mono (data/labels)
 
 ## Adding or editing sites
 
@@ -79,6 +79,10 @@ Add entries to the `IMAGES` array in `js/gallery.js` and drop the file in `image
 {src:"../images/filename.jpg", caption:"Site name — before/after"}
 ```
 The gallery renders as a horizontal carousel (3 items visible on desktop, 2 at ≤900 px, 1 at ≤520 px). If `IMAGES` is empty the gallery shows "Photos coming soon."
+
+## News ticker
+
+The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powered by `common.js`. On load it fetches 8 headlines from Google News RSS via the `rss2json` public API; if that fails it falls back to 8 hardcoded items defined in the `fallback` array near the top of the ticker IIFE in `common.js`. To change the fallback headlines, edit that array directly. The animation duration scales automatically to content width (`track.scrollWidth / 80`). The ticker only renders on pages that contain `#tickerTrack` — currently only `index.html`.
 
 ## Founders section
 

@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO / social ................................................................ -->
   <title>Krishna Green Foundation — Reserve forests, restored and still standing</title>
   <meta name="description"
     content="Krishna Green Foundation is a Section 8 non-profit and CSR implementation partner restoring reserve forests, eco-tourism parks and urban forests across Andhra Pradesh. 2,14,667 saplings planted across 297 acres — 100% survival recorded." />
@@ -19,7 +18,6 @@
   <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="images/logo.jpeg" />
 
-  <!-- Fonts: Playfair Display (editorial display) · Instrument Sans (UI) · Space Mono (register data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -27,7 +25,6 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Organization schema -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,122 +85,319 @@
   <main id="main">
 
     <!-- ========================== HERO ========================== -->
-    <section class="hero" aria-labelledby="hero-h">
-      <svg class="hero__rings" viewBox="0 0 600 600" aria-hidden="true" fill="none">
-        <g stroke="#5F7A55" stroke-width="1" opacity="0.5">
-          <circle cx="300" cy="300" r="285" />
-          <circle cx="300" cy="300" r="242" />
-          <circle cx="300" cy="300" r="205" />
-        </g>
-        <g stroke="#E0A32E" stroke-width="1.4" opacity="0.85">
-          <circle cx="300" cy="300" r="168" />
-          <circle cx="300" cy="300" r="128" />
-        </g>
-        <g stroke="#152A1E" stroke-width="1.6" opacity="0.7">
-          <circle cx="300" cy="300" r="90" />
-          <circle cx="300" cy="300" r="54" />
-        </g>
-        <path
-          d="M300 340 V232 M300 268 C270 250 250 224 250 224 M300 268 C330 250 350 224 350 224 M300 292 C276 280 262 260 262 260 M300 292 C324 280 338 260 338 260"
-          stroke="#152A1E" stroke-width="2.2" stroke-linecap="round" />
-      </svg>
+    <section class="hero hero--split" aria-labelledby="hero-h">
+      <div class="wrap hero__split">
 
-      <div class="wrap hero__in">
-        <span class="eyebrow">Krishna Green Foundation · Section&nbsp;8 non-profit</span>
-        <h1 id="hero-h" class="display">
-          We turn open, degraded land into forest — and <em>keep it&nbsp;alive.</em><br>
-          <span class="grow">Every sapling still standing.</span>
-        </h1>
-        <p class="lede hero__lede">
-          Across Andhra Pradesh we restore reserve forests, green eco-tourism parks and raise urban
-          forests — then stay long enough to see them survive. 2,14,667 native saplings planted across
-          297 acres and nine sites, with 100% survival recorded.
-        </p>
-        <div class="hero__cta">
-          <a class="btn" href="/work/">Explore the sites <span class="arw" aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="/approach/">How we work</a>
+        <div class="hero__text">
+          <span class="eyebrow">Krishna Green Foundation · Section&nbsp;8 non-profit</span>
+          <h1 id="hero-h" class="display hero__h1">
+            We turn open land into forest —<br>
+            and <em>keep every sapling alive.</em>
+          </h1>
+          <p class="lede hero__lede">
+            Across Andhra Pradesh we restore reserve forests, eco-tourism parks and urban forests —
+            then stay long enough to see them survive. 2,14,667 native saplings across 297 acres.
+            100% survival recorded.
+          </p>
+          <div class="hero__cta">
+            <a class="btn" href="/work/">Explore our sites <span class="arw" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="/approach/">How we work</a>
+          </div>
+          <div class="hero__trust">
+            <span class="trust-badge">Section 8 Non-Profit</span>
+            <span class="trust-badge">Lic. 191456</span>
+            <span class="trust-badge">CIN U94990AP2026NPL128077</span>
+            <span class="trust-badge">100% Survival Recorded</span>
+          </div>
         </div>
-        <div class="hero__meta">
-          <span><b>9</b> sites</span><span class="dot" aria-hidden="true"></span>
-          <span><b>297</b> acres</span><span class="dot" aria-hidden="true"></span>
-          <span><b>2,14,667</b> saplings</span><span class="dot" aria-hidden="true"></span>
-          <span><b>100%</b> survival</span>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__photo-grid">
+            <img src="images/1.jpeg"  alt="Plantation site — reserve forest restoration" loading="eager" />
+            <img src="images/12.jpeg" alt="Native saplings established on forest land"   loading="lazy"  />
+            <img src="images/24.jpeg" alt="Eco-tourism park greening underway"           loading="lazy"  />
+            <img src="images/36.jpeg" alt="Urban Nagaravanam forest near Bapatla"        loading="lazy"  />
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-n">297</span>
+            <span class="hero__badge-l">acres restored</span>
+          </div>
         </div>
-        <a class="scrollcue" href="#impact"><span aria-hidden="true"></span> Scroll for the impact</a>
+
       </div>
     </section>
 
-    <!-- ========================== IMPACT ========================== -->
-    <section class="impact section" id="impact" aria-labelledby="impact-h">
+    <!-- ========================== STATS BAR ========================== -->
+    <section class="stats-bar" aria-label="Key impact statistics">
       <div class="wrap">
-        <span class="eyebrow eyebrow--onDark">Impact at a glance</span>
-        <h2 id="impact-h" class="display lede lede--onDark"
-          style="font-size:clamp(24px,3.4vw,36px);color:var(--bone);max-width:30ch;line-height:1.2">
-          The number that matters isn't how many we planted. It's how many are still growing.
-        </h2>
-
-        <div class="stats reveal">
-          <div class="stat">
-            <div class="stat__n">2,14,667</div>
-            <div class="stat__l">Native saplings planted</div>
+        <div class="stats-bar__inner">
+          <div class="sbar-stat">
+            <div class="sbar-n">2,14,667</div>
+            <div class="sbar-l">Native saplings planted</div>
           </div>
-          <div class="stat">
-            <div class="stat__n">100<small>%</small></div>
-            <div class="stat__l">Survival recorded</div>
+          <div class="sbar-div" aria-hidden="true"></div>
+          <div class="sbar-stat">
+            <div class="sbar-n">100<span>%</span></div>
+            <div class="sbar-l">Survival recorded</div>
           </div>
-          <div class="stat">
-            <div class="stat__n">297</div>
-            <div class="stat__l">Acres restored</div>
+          <div class="sbar-div" aria-hidden="true"></div>
+          <div class="sbar-stat">
+            <div class="sbar-n">297</div>
+            <div class="sbar-l">Acres restored</div>
           </div>
-          <div class="stat">
-            <div class="stat__n">9</div>
-            <div class="stat__l">Sites across 6 locations</div>
+          <div class="sbar-div" aria-hidden="true"></div>
+          <div class="sbar-stat">
+            <div class="sbar-n">9</div>
+            <div class="sbar-l">Sites · 6 locations</div>
           </div>
         </div>
-        <p class="impact__note">Figures as recorded in the plantation register across all nine sites. Monitoring method:
-          [MONITORING_METHOD — e.g. quarterly on-ground survival audit].</p>
+      </div>
+    </section>
+
+    <!-- ========================== WHAT WE RESTORE ========================== -->
+    <section class="section programs" id="programs" aria-labelledby="prog-h">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="eyebrow">What we restore</span>
+            <h2 id="prog-h" class="display sec-head__h2">Three kinds of forest.<br>One standard of care.</h2>
+          </div>
+          <a href="/work/" class="btn btn--ghost">View all 9 sites <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="prog__grid">
+
+          <a class="prog-card reveal" href="/work/">
+            <div class="prog-card__img">
+              <img src="images/3.jpeg" alt="Reserve forest restoration — dense native planting" loading="lazy" />
+              <span class="prog-card__tag">Reserve Forest</span>
+            </div>
+            <div class="prog-card__body">
+              <h3>Reserve Forest &amp; Afforestation</h3>
+              <p>Open, degraded forest land brought back with dense native planting — surveyed, fenced, planted and monitored until the forest is self-sustaining.</p>
+              <div class="prog-card__data">
+                <span><b>136</b> acres</span>
+                <span><b>1,21,110</b> saplings</span>
+                <span><b>5</b> sites</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="prog-card reveal" href="/work/">
+            <div class="prog-card__img">
+              <img src="images/40.jpeg" alt="Eco-tourism park greening — living green space" loading="lazy" />
+              <span class="prog-card__tag prog-card__tag--park">Eco-Tourism Park</span>
+            </div>
+            <div class="prog-card__body">
+              <h3>Eco-Tourism Park Greening</h3>
+              <p>Public parks transformed into walk-in forests — durable tree cover that survives footfall and gives communities a living green space to return to.</p>
+              <div class="prog-card__data">
+                <span><b>98</b> acres</span>
+                <span><b>53,320</b> saplings</span>
+                <span><b>2</b> sites</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="prog-card reveal" href="/work/">
+            <div class="prog-card__img">
+              <img src="images/55.jpeg" alt="Urban Nagaravanam forest — green lung near settlements" loading="lazy" />
+              <span class="prog-card__tag prog-card__tag--urban">Urban Forest</span>
+            </div>
+            <div class="prog-card__body">
+              <h3>Urban Forest · Nagaravanam</h3>
+              <p>Dense urban forests planted close to where people live — green lungs under the Nagaravanam model, restoring biodiversity at the city edge.</p>
+              <div class="prog-card__data">
+                <span><b>62</b> acres</span>
+                <span><b>40,237</b> saplings</span>
+                <span><b>2</b> sites</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== MISSION STRIP ========================== -->
+    <section class="mission-strip" aria-labelledby="ms-h">
+      <div class="wrap mission-strip__in">
+        <div class="mission-strip__left reveal">
+          <h2 id="ms-h" class="display">Planted to survive.<br><em>Not just to count.</em></h2>
+        </div>
+        <div class="mission-strip__right reveal">
+          <p>Most plantation drives measure success at planting day. We measure it years later,
+            when the forest is still standing. Our site register is public, our survival data is
+            verified on-ground, and we don't leave until the trees can stand on their own.</p>
+          <a href="/about/" class="btn btn--onDark" style="margin-top:28px;display:inline-flex">
+            Our story <span class="arw" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== HOW IT WORKS ========================== -->
+    <section class="section how-it-works" id="approach-preview" aria-labelledby="how-h">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="eyebrow">Our approach</span>
+            <h2 id="how-h" class="display sec-head__h2">From open land to living forest<br>in four steps.</h2>
+          </div>
+          <a href="/approach/" class="btn btn--ghost">Full approach <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="how__grid reveal">
+
+          <div class="how-step">
+            <div class="how-step__no">01</div>
+            <svg class="how-step__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <h3>Site Survey &amp; Assessment</h3>
+            <p>Every site is walked, soil-tested and mapped before a single sapling is ordered. We only take on ground we know we can restore.</p>
+          </div>
+
+          <div class="how-step">
+            <div class="how-step__no">02</div>
+            <svg class="how-step__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 22V12M12 12C12 7 7 3 3 3s1 5 4 7M12 12c0-5 5-9 9-9s-1 5-4 7"/>
+            </svg>
+            <h3>Native Species Selection</h3>
+            <p>Only native, site-suited species — raised in-nursery to plantable size. No wildcards, no ornamentals, no monoculture.</p>
+          </div>
+
+          <div class="how-step">
+            <div class="how-step__no">03</div>
+            <svg class="how-step__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/><path d="M12 6v6l4 2"/>
+            </svg>
+            <h3>Monsoon Planting</h3>
+            <p>Pitting, soil work and protective fencing — then planting timed precisely to the monsoon for maximum establishment success.</p>
+          </div>
+
+          <div class="how-step">
+            <div class="how-step__no">04</div>
+            <svg class="how-step__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+            </svg>
+            <h3>Multi-Year Monitoring</h3>
+            <p>We maintain and monitor through the vulnerable early years — replacing losses, recording survival, staying until the forest is established.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== VALUES ========================== -->
+    <section class="section values" id="values" aria-labelledby="val-h">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="eyebrow">Why we're different</span>
+            <h2 id="val-h" class="display sec-head__h2">What a forest-first NGO looks like.</h2>
+          </div>
+        </div>
+
+        <div class="val__grid">
+
+          <div class="val-card reveal">
+            <div class="val-card__icon" aria-hidden="true">🌱</div>
+            <h3>Survival-First</h3>
+            <p>Success means a living forest, not a planting event. We track survival on every site and stay until the numbers are confirmed on-ground.</p>
+          </div>
+
+          <div class="val-card reveal">
+            <div class="val-card__icon" aria-hidden="true">📋</div>
+            <h3>Radical Transparency</h3>
+            <p>Every site has a public register entry — name, location, area, species count and survival figure. Nothing is hidden or invented.</p>
+          </div>
+
+          <div class="val-card reveal">
+            <div class="val-card__icon" aria-hidden="true">🌳</div>
+            <h3>Native Species Only</h3>
+            <p>We plant what belongs. No fast-growing exotics, no monocultures. Only species native to each site's specific ecosystem and soil type.</p>
+          </div>
+
+          <div class="val-card reveal">
+            <div class="val-card__icon" aria-hidden="true">🤝</div>
+            <h3>CSR-Ready Reporting</h3>
+            <p>As a Section 8 organisation, we deliver the documentation that corporate CSR programmes need — with no invented claims or unverified numbers.</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <!-- ========================== CSR PROOF ========================== -->
-    <section class="section proof" aria-labelledby="pr-h">
+    <section class="section csr-proof" aria-labelledby="csr-h">
       <div class="wrap">
-        <div class="proof__top reveal">
-          <div>
-            <span class="eyebrow eyebrow--onDark">For CSR partners</span>
-            <h2 id="pr-h" class="display">Fund forests you can point to.</h2>
+        <div class="csr-proof__in reveal">
+
+          <div class="csr-proof__text">
+            <span class="eyebrow">For CSR partners</span>
+            <h2 id="csr-h" class="display">Fund forests you can point&nbsp;to.</h2>
+            <p class="lede" style="margin-top:18px">As a Section 8 implementation partner, we deliver, document and monitor greening
+              projects on behalf of corporate CSR programmes and forest agencies — with a site register
+              that makes reporting straightforward.</p>
+            <a href="/contact/" class="btn btn--gold" style="margin-top:28px">
+              Start a CSR conversation <span class="arw" aria-hidden="true">→</span>
+            </a>
           </div>
-          <p class="lede lede--onDark">As a Section 8 implementation partner, we deliver, document and monitor greening
-            projects on behalf of corporate CSR programmes and forest agencies — with a site register that makes
-            reporting straightforward.</p>
-        </div>
 
-        <div class="logos reveal" aria-label="Partner logos — placeholders">
-          <div class="logo">[PARTNER&nbsp;LOGO 1]</div>
-          <div class="logo">[PARTNER&nbsp;LOGO 2]</div>
-          <div class="logo">[PARTNER&nbsp;LOGO 3]</div>
-          <div class="logo">[PARTNER&nbsp;LOGO 4]</div>
+          <div class="csr-proof__logos">
+            <p class="csr-proof__logos-label">Our partners</p>
+            <div class="logos logos--light">
+              <div class="logo">[PARTNER&nbsp;LOGO 1]</div>
+              <div class="logo">[PARTNER&nbsp;LOGO 2]</div>
+              <div class="logo">[PARTNER&nbsp;LOGO 3]</div>
+              <div class="logo">[PARTNER&nbsp;LOGO 4]</div>
+            </div>
+            <p class="csr-proof__note">Partner logos shown once approved — none shown until real.</p>
+          </div>
+
         </div>
-        <p class="proof__foot">Partner logos and testimonials appear here once approved — none are shown until they're
-          real. [Add CSR partners &amp; quotes.]</p>
       </div>
     </section>
 
-    <!-- ========================== FINAL CTA ========================== -->
-    <section class="finalcta">
+    <!-- ========================== CTA BLOCK ========================== -->
+    <section class="cta-block" aria-labelledby="ctab-h">
       <div class="wrap">
-        <span class="eyebrow reveal" style="justify-content:center;display:inline-flex">Have land that should be
-          forest?</span>
-        <h2 class="display reveal">Let's plant something that survives.</h2>
-        <p class="lede reveal" style="margin-inline:auto">Whether you're a CSR programme, a forest agency or a community
-          with degraded land, start with a conversation. We'll tell you honestly what the site can carry.</p>
-        <div class="hero__cta reveal">
-          <a class="btn btn--gold" href="/contact/">Start a conversation <span class="arw"
-              aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="/work/">See the work first</a>
+        <span class="eyebrow eyebrow--onDark reveal" style="display:inline-flex;justify-content:center;width:100%">Make a difference today</span>
+        <h2 id="ctab-h" class="display reveal" style="text-align:center;margin-inline:auto;margin-top:20px;max-width:22ch;color:var(--forest)">
+          Ready to plant something that survives?
+        </h2>
+        <p class="lede reveal" style="margin-inline:auto;text-align:center;margin-top:18px;max-width:50ch">
+          Whether you're a CSR programme, a forest agency, or a community with degraded land — start with a conversation.
+        </p>
+
+        <div class="cta-tiles reveal">
+
+          <a class="cta-tile" href="/contact/">
+            <div class="cta-tile__icon" aria-hidden="true">🤝</div>
+            <h3>Partner with us</h3>
+            <p>Implement a CSR greening project or agency restoration programme with full site documentation.</p>
+            <span class="cta-tile__link">Start a project →</span>
+          </a>
+
+          <a class="cta-tile cta-tile--gold" href="/work/">
+            <div class="cta-tile__icon" aria-hidden="true">🌿</div>
+            <h3>Explore our work</h3>
+            <p>Browse all nine plantation sites with survival data, locations and detailed case studies.</p>
+            <span class="cta-tile__link">View site register →</span>
+          </a>
+
+          <a class="cta-tile" href="/about/">
+            <div class="cta-tile__icon" aria-hidden="true">📋</div>
+            <h3>Verify our credentials</h3>
+            <p>Section 8 licence, CIN, certifications — everything you need to due-diligence our work.</p>
+            <span class="cta-tile__link">About us →</span>
+          </a>
+
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- ========================== FOOTER ========================== -->
