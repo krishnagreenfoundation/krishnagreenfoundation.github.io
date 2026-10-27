@@ -68,7 +68,7 @@ if (galleryGrid) {
   if (IMAGES.length) {
     galleryGrid.innerHTML = IMAGES.map(function (img) {
       return '<div class="gallery__item">'
-        + '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy" />'
+        + '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy" onload="if(this.naturalHeight>this.naturalWidth)this.parentNode.classList.add(\'is-tall\')" />'
         + (img.caption ? '<div class="gallery__caption">' + esc(img.caption) + '</div>' : '')
         + '</div>';
     }).join("");
