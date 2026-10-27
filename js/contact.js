@@ -23,7 +23,7 @@ if (form) {
     var payload = {
       access_key: "65e50926-5407-4095-9402-f95ad4f25e73",
       subject: "Enquiry from " + document.getElementById("name").value.trim() +
-        " – " + document.getElementById("ptype").value,
+        " - " + document.getElementById("ptype").value,
       from_name: "Krishna Green Foundation Website",
       replyto: document.getElementById("email").value.trim(),
       name: document.getElementById("name").value.trim(),

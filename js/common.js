@@ -33,6 +33,44 @@ if ("IntersectionObserver" in window && !reduce) {
   document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
 }
 
+/* ---------- seed-to-tree hero animation ---------- */
+var seedScene = document.getElementById("seedScene");
+if (seedScene && !reduce) {
+  if ("IntersectionObserver" in window) {
+    var seedIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { seedScene.classList.add("play"); seedIO.unobserve(seedScene); }
+      });
+    }, { threshold: 0.3 });
+    seedIO.observe(seedScene);
+  } else {
+    seedScene.classList.add("play");
+  }
+}
+
+/* ---------- ambient falling leaves ---------- */
+if (!reduce) {
+  var LEAF_SVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6 6 3 11 3 15a9 9 0 0 0 18 0c0-4-3-9-9-13z"/><path d="M12 4v17" stroke="rgba(27,23,18,.28)" stroke-width="1" fill="none"/></svg>';
+  var LEAF_COLORS = ["var(--leaf-1)", "var(--leaf-2)", "var(--leaf-3)", "var(--leaf-4)", "var(--leaf-5)"];
+  var leaves = document.createElement("div");
+  leaves.className = "leaves";
+  leaves.setAttribute("aria-hidden", "true");
+  for (var i = 0; i < 16; i++) {
+    var leaf = document.createElement("span");
+    leaf.className = "leaf";
+    var dur = 12 + Math.random() * 10;
+    leaf.style.setProperty("--size", Math.round(14 + Math.random() * 14) + "px");
+    leaf.style.setProperty("--dur", dur.toFixed(1) + "s");
+    leaf.style.setProperty("--delay", (-Math.random() * dur).toFixed(1) + "s");
+    leaf.style.setProperty("--x", (Math.random() * 100).toFixed(1) + "vw");
+    leaf.style.setProperty("--drift", Math.round(Math.random() * 140 - 70) + "px");
+    leaf.style.color = LEAF_COLORS[i % LEAF_COLORS.length];
+    leaf.innerHTML = LEAF_SVG;
+    leaves.appendChild(leaf);
+  }
+  document.body.insertBefore(leaves, document.body.firstChild);
+}
+
 /* ---------- footer year ---------- */
 var yr = document.getElementById("yr");
 if (yr) yr.textContent = new Date().getFullYear();
@@ -43,14 +81,14 @@ if (yr) yr.textContent = new Date().getFullYear();
   if (!track) return;
 
   var fallback = [
-    { title: "India's forest cover rises for 5th consecutive year — Forest Survey of India 2023", link: "https://fsi.nic.in/" },
+    { title: "India's forest cover rises for 5th consecutive year - Forest Survey of India 2023", link: "https://fsi.nic.in/" },
     { title: "Andhra Pradesh plants over 1.5 crore saplings under Green AP Mission this monsoon", link: "https://environment.ap.gov.in/" },
     { title: "CAMPA funds: ₹55,000 crore earmarked to restore degraded forest land across India", link: "https://campa.gov.in/" },
-    { title: "Supreme Court upholds compensatory afforestation norms — strict compliance directed", link: "#" },
-    { title: "Corporate CSR spending on environment and ecology reaches ₹4,200 crore — MCA report", link: "#" },
+    { title: "Supreme Court upholds compensatory afforestation norms - strict compliance directed", link: "#" },
+    { title: "Corporate CSR spending on environment and ecology reaches ₹4,200 crore - MCA report", link: "#" },
     { title: "National Agroforestry Policy push: farmers incentivised to plant trees on agricultural bunds", link: "#" },
     { title: "UNESCO recognises community-led forest restoration models from Andhra Pradesh", link: "#" },
-    { title: "MoEFCC launches 'Harit Dhara' — national drive to double urban tree canopy cover by 2030", link: "#" },
+    { title: "MoEFCC launches 'Harit Dhara' - national drive to double urban tree canopy cover by 2030", link: "#" },
   ];
 
   function render(items) {

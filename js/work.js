@@ -5,9 +5,9 @@ var CAT = {
   urban: "Urban forest · Nagaravanam"
 };
 var SITES = [
-  { no: "01", name: 'Muthayapalame RF — Compartment 1, Plot 1', loc: "Kappalavanipalem", cat: "reserve", acres: 27, plants: 24150 },
-  { no: "02", name: 'Muthayapalame RF — Compartment 1, Plot 2', loc: "Kappalavanipalem", cat: "reserve", acres: 22, plants: 20850 },
-  { no: "03", name: 'Motupalli RF — Compartment No. 380', loc: "Chinnaganjam", cat: "reserve", acres: 35, plants: 35000 },
+  { no: "01", name: 'Muthayapalame RF - Compartment 1, Plot 1', loc: "Kappalavanipalem", cat: "reserve", acres: 27, plants: 24150 },
+  { no: "02", name: 'Muthayapalame RF - Compartment 1, Plot 2', loc: "Kappalavanipalem", cat: "reserve", acres: 22, plants: 20850 },
+  { no: "03", name: 'Motupalli RF - Compartment No. 380', loc: "Chinnaganjam", cat: "reserve", acres: 35, plants: 35000 },
   { no: "04", name: 'Motupalli Reserve Forest', loc: "Chinnaganjam", cat: "reserve", acres: 27, plants: 30000 },
   { no: "05", name: 'Eco-Tourism Park, Kanigiri', loc: "Kanigiri", cat: "park", acres: 49, plants: 26660 },
   { no: "06", name: 'Eco-Tourism Park, Chinarikatla', loc: "Podili", cat: "park", acres: 49, plants: 26660 },
@@ -56,9 +56,9 @@ if (register) {
   var lastFocus = null;
 
   function challengeText(cat) {
-    if (cat === "reserve") return "Open, degraded reserve-forest land with sparse cover and low natural regeneration — the kind of ground that needs dense, deliberate native planting to come back.";
+    if (cat === "reserve") return "Open, degraded reserve-forest land with sparse cover and low natural regeneration: the kind of ground that needs dense, deliberate native planting to come back.";
     if (cat === "park") return "A public eco-tourism park needing durable tree cover that can survive footfall and thrive as a living, walk-in green space.";
-    return "Land near a growing settlement earmarked for a dense urban forest under the Nagaravanam model — a green lung planted close to where people live.";
+    return "Land near a growing settlement earmarked for a dense urban forest under the Nagaravanam model, a green lung planted close to where people live.";
   }
   function openCase(no) {
     var s = SITES.filter(function (x) { return x.no === no; })[0];
@@ -79,13 +79,13 @@ if (register) {
       + '<div class="md__gallery"><div class="md__ph">[SITE PHOTO]<br>replace with real image</div><div class="md__ph">[SITE PHOTO]<br>replace with real image</div></div>'
       + '<section><h4>The challenge</h4><p>' + challengeText(s.cat) + ' <span style="color:#9a9078">[SITE_SPECIFIC_CONTEXT]</span></p></section>'
       + '<section><h4>Our role &amp; approach</h4><ul>'
-      + '<li>Surveyed the site and prepared the ground — pitting, soil work and protective fencing.</li>'
+      + '<li>Surveyed the site and prepared the ground: pitting, soil work and protective fencing.</li>'
       + '<li>Selected native, site-suited species [KEY_SPECIES] raised to plantable size.</li>'
       + '<li>Planted ' + fmt(s.plants) + ' saplings across ' + fmt(s.acres) + ' acres, timed to the monsoon.</li>'
       + '<li>Maintained and monitored through the vulnerable early years [MAINTENANCE_PERIOD].</li>'
       + '</ul></section>'
       + '<section><h4>What we delivered</h4><p>' + fmt(s.acres) + ' acres restored and ' + fmt(s.plants) + ' native saplings established, with survival tracked site-wide and recorded at 100%.</p></section>'
-      + '<section><h4>Results &amp; impact</h4><p>100% survival recorded across the site. <span style="color:#9a9078">[Add further verifiable outcomes — canopy, species count, community benefit — only where measured.]</span></p></section>'
+      + '<section><h4>Results &amp; impact</h4><p>100% survival recorded across the site. <span style="color:#9a9078">[Add further verifiable outcomes: canopy, species count, community benefit; only where measured.]</span></p></section>'
       + '<div class="md__cta"><a class="btn btn--gold" href="/contact/" data-close>Discuss a project like this <span class="arw" aria-hidden="true">→</span></a></div>';
 
     modal.setAttribute("data-open", "true");

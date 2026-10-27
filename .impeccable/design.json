@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T00:00:00Z",
+  "title": "Design System: Krishna Green Foundation",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Manila Paper", "canonical": "#EFE6C9", "tonalRamp": ["#3A3220", "#544A2E", "#71643E", "#8F7F52", "#B0A06C", "#D0C28C", "#E6D9AE", "#F7F1DC"] },
+      "ink": { "role": "neutral", "displayName": "India Ink", "canonical": "#1B1712", "tonalRamp": ["#0A0806", "#1B1712", "#332B20", "#4A4128", "#6B5E3F", "#948660", "#C2B792", "#EFE6C9"] },
+      "compartment": { "role": "secondary", "displayName": "Compartment Green", "canonical": "#2B4A34", "tonalRamp": ["#0E1B13", "#1A2E20", "#2B4A34", "#3E6B47", "#579066", "#79B389", "#A7D3B4", "#DCEEDF"] },
+      "compartment-3": { "role": "secondary", "displayName": "Park Green", "canonical": "#6E8F63", "tonalRamp": ["#1F2A1B", "#324229", "#48603A", "#5E7C4E", "#6E8F63", "#8FAD84", "#B6CBAD", "#DFEADA"] },
+      "cat-urban": { "role": "secondary", "displayName": "Surveyor's Blue", "canonical": "#3C5A72", "tonalRamp": ["#101A22", "#1D2E3C", "#2C4356", "#3C5A72", "#527490", "#7196AF", "#9FBACC", "#D3E1EA"] },
+      "stamp": { "role": "primary", "displayName": "Registrar Red", "canonical": "#8A2E22", "tonalRamp": ["#2C0D08", "#481609", "#66200D", "#8A2E22", "#A83A2A", "#C6543F", "#DF8873", "#F2C9BE"] },
+      "gold": { "role": "tertiary", "displayName": "Brass Seal Gold", "canonical": "#B8862E", "tonalRamp": ["#3C2A0D", "#5A3F13", "#7D571B", "#9C6C23", "#B8862E", "#CCA254", "#E0C28C", "#F3E4C6"] },
+      "night": { "role": "neutral", "displayName": "Ledger Cover", "canonical": "#17130E", "tonalRamp": ["#0A0807", "#17130E", "#241E14", "#3A311F", "#544729", "#746136", "#9C8E68", "#C9BE99"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Old Standard TT", "purpose": "Page and section headlines only — an engraved gazetteer register character, never body copy." },
+      "body": { "displayName": "Public Sans", "purpose": "All prose. A civic-register sans built for government publishing systems." },
+      "label": { "displayName": "Courier Prime", "purpose": "Every ledger number, tag, nav item, and micro-label. Never a full sentence." }
+    },
+    "shadows": [
+      { "name": "button-hover-paper", "value": "0 6px 14px rgba(27,23,18,.22)", "purpose": "Default/ghost button hover on paper grounds." },
+      { "name": "button-hover-stamp", "value": "0 6px 14px rgba(138,46,34,.35)", "purpose": "Donate/submit button hover." },
+      { "name": "button-hover-dark", "value": "0 6px 14px rgba(0,0,0,.35)", "purpose": "Button hover on night sections." },
+      { "name": "modal-panel", "value": "-24px 0 60px rgba(23,19,14,.28)", "purpose": "Case-file modal drawer entrance." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(.2,.7,.2,1)", "purpose": "Default easing for hover, reveal, and modal transitions." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "520px" },
+      { "name": "md", "value": "640px" },
+      { "name": "lg", "value": "900px" },
+      { "name": "xl", "value": "1240px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default ledger action button — ink fill, rectangular, lifts with a soft shadow on hover.",
+      "html": "<button class=\"ds-btn-primary\">Open the register <span class=\"ds-arw\">&rarr;</span></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; padding: 14px 24px; border: 1.5px solid #1B1712; border-radius: 2px; background: #1B1712; color: #EFE6C9; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .01em; transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s cubic-bezier(.2,.7,.2,1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(27,23,18,.22); } .ds-btn-primary:focus-visible { outline: 3px solid #8A2E22; outline-offset: 3px; }"
+    },
+    {
+      "name": "Stamp Button",
+      "kind": "button",
+      "refersTo": "button-stamp",
+      "description": "Registrar-red action button, reserved for the donate/submit call to action.",
+      "html": "<button class=\"ds-btn-stamp\">Send my pledge &rarr;</button>",
+      "css": ".ds-btn-stamp { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; padding: 14px 24px; border: 1.5px solid #8A2E22; border-radius: 2px; background: #8A2E22; color: #F4EEDA; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 600; transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s cubic-bezier(.2,.7,.2,1); } .ds-btn-stamp:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(138,46,34,.35); }"
+    },
+    {
+      "name": "Ledger Row (Card)",
+      "kind": "card",
+      "refersTo": "ledger-row",
+      "description": "A register/site row: ruled bottom border, mono index number, category swatch tag, tabular data column.",
+      "html": "<button class=\"ds-site\"><span class=\"ds-site-no\">01</span><span class=\"ds-site-mid\"><span class=\"ds-site-name\">Muthayapalame RF</span><span class=\"ds-site-tag\">Reserve forest</span></span><span class=\"ds-site-data\">27 ac &middot; 100%</span></button>",
+      "css": ".ds-site { width: 100%; text-align: left; cursor: pointer; background: transparent; border: 0; border-bottom: 1px solid #B7A467; display: grid; grid-template-columns: 60px 1.6fr auto; gap: 20px; align-items: center; padding: 22px 10px; font-family: 'Public Sans', sans-serif; transition: background .2s, transform .2s; } .ds-site:hover { background: #E6D9AE; transform: translateX(8px); } .ds-site-no { font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 16px; color: #6B5E3F; } .ds-site-name { font-family: 'Old Standard TT', serif; font-size: 20px; color: #1B1712; } .ds-site-tag { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; color: #4A4128; } .ds-site-data { font-family: 'Courier Prime', monospace; font-size: 13px; color: #4A4128; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Ledger Input Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Form field with a mono uppercase label and hairline border that darkens on focus.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\">Name</label><input class=\"ds-field-input\" type=\"text\" /></div>",
+      "css": ".ds-field { margin-bottom: 20px; } .ds-field-label { display: block; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: #4A4128; margin-bottom: 8px; } .ds-field-input { width: 100%; font-family: 'Public Sans', sans-serif; font-size: 16px; color: #1B1712; background: #EFE6C9; border: 1px solid #6B5E3F; border-radius: 2px; padding: 13px 14px; transition: border-color .2s; } .ds-field-input:focus { border-color: #1B1712; border-width: 1.5px; outline: none; }"
+    },
+    {
+      "name": "Register Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky register tab bar — mono uppercase links in ruled cells with a red underline on hover/active.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\">Register</a><a href=\"#\" class=\"ds-nav-link\" aria-current=\"page\">Donate</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; height: 72px; background: #EFE6C9; border-bottom: 1.5px solid #1B1712; } .ds-nav-link { font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: #4A4128; height: 100%; display: flex; align-items: center; padding-inline: 16px; border-left: 1px solid #B7A467; position: relative; } .ds-nav-link::after { content: ''; position: absolute; left: 16px; right: 16px; bottom: 0; height: 3px; background: #8A2E22; transform: scaleX(0); transition: transform .25s; } .ds-nav-link:hover::after, .ds-nav-link[aria-current='page']::after { transform: scaleX(1); }"
+    },
+    {
+      "name": "Registrar Seal",
+      "kind": "custom",
+      "refersTo": "seal",
+      "description": "The signature stamp component — a rotated circular badge used sparingly for verified facts (hero, about, donate honesty notice).",
+      "html": "<div class=\"ds-seal\"><span class=\"ds-seal-text\">297 Acres<br>Verified</span></div>",
+      "css": ".ds-seal { width: 96px; height: 96px; border-radius: 50%; border: 2px solid #8A2E22; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(-7deg); color: #8A2E22; } .ds-seal::before { content: ''; position: absolute; inset: 6px; border: 1px solid #8A2E22; border-radius: 50%; } .ds-seal-text { font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working-Plan Register",
+    "overview": "The site is built to read as a forester's working-plan register, not a marketing page: hand-ruled ledger paper, india-ink linework, cross-hatched compartment maps, and rubber-stamped survey seals carry every claim the organisation makes. Nothing floats free of a rule, a box, or a ledger row — the design's authority comes from looking like a document a CSR auditor would already trust, not from persuasion copy. This directly rejects the generic plantation-NGO default (a leafy green gradient hero over a stock sapling photo, rounded pill buttons, emoji icons) in favor of flat ink-on-paper: rectangular controls, hairline rules, monospace ledger numerals, and a single registrar's-red stamp reserved for verified facts.",
+    "keyCharacteristics": [
+      "Flat ink-on-paper — no gradients, no soft drop shadows, no rounded leaf iconography",
+      "Every category reads as a compartment on a cross-hatched survey map, never a colored icon tile",
+      "Rectangular, ruled controls throughout; radius is functionally zero",
+      "One accent reserved for meaning: registrar red appears only on verified facts and the primary donation action",
+      "Real photography desaturates toward sepia in list contexts and returns to full color on hover/focus"
+    ],
+    "rules": [
+      { "name": "The One Stamp Rule", "body": "Registrar red is spent on verified facts and the single primary donation action only. A screen with two red elements has diluted the seal's meaning.", "section": "colors" },
+      { "name": "The Flat Ground Rule", "body": "No gradients anywhere, including button and card backgrounds. Depth comes from rules, borders, and a soft ambient shadow on interaction only — never a color blend.", "section": "colors" },
+      { "name": "The 12px Floor Rule", "body": "No functional or label text ever ships below 12px, even inside dense ledger chips — legibility outranks density in this system.", "section": "typography" },
+      { "name": "The Mono-Is-Data Rule", "body": "Courier Prime only ever sets numbers, codes, or short uppercase labels. It never sets a sentence of prose.", "section": "typography" },
+      { "name": "The Soft-Lift Rule", "body": "Any hover shadow blurs and lifts; it never offsets with a hard, zero-blur edge.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every category distinction legible through the cross-hatch pattern plus swatch, not color alone.",
+      "Do reserve registrar red for verified facts and the one primary donation action per screen.",
+      "Do set every number in tabular-nums so ledger columns align.",
+      "Do label illustrative or placeholder data honestly in the copy itself.",
+      "Do keep hover depth soft and blurred; keep structural depth in ink rules and borders."
+    ],
+    "donts": [
+      "Don't add a kicker or eyebrow caption above any heading.",
+      "Don't use emoji as icons anywhere; every icon is an authored line-stroke SVG.",
+      "Don't round a button, input, or card corner beyond the 2px hairline radius.",
+      "Don't use a hard-offset, zero-blur box-shadow.",
+      "Don't invent a donation amount-to-impact conversion without real per-rupee cost data on file."
+    ]
+  }
+}
