@@ -25,7 +25,7 @@ if (register) {
       return '<button class="site reveal is-visible" data-no="' + s.no + '" aria-haspopup="dialog">'
         + '<span class="site__no">' + s.no + '</span>'
         + '<span class="site__mid"><span class="site__name">' + esc(s.name) + '</span>'
-        + '<span class="site__loc">' + esc(s.loc) + '</span>'
+        + '<br><span class="site__loc">' + esc(s.loc) + '</span>'
         + '<br><span class="site__tag" data-cat="' + s.cat + '">' + esc(CAT[s.cat]) + '</span></span>'
         + '<span class="site__data"><span><b>' + fmt(s.acres) + '</b> ac</span>'
         + '<span><b>' + fmt(s.plants) + '</b> saplings</span>'

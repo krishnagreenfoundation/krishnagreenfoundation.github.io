@@ -55,7 +55,7 @@ if (!reduce) {
   var leaves = document.createElement("div");
   leaves.className = "leaves";
   leaves.setAttribute("aria-hidden", "true");
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < 8; i++) {
     var leaf = document.createElement("span");
     leaf.className = "leaf";
     var dur = 12 + Math.random() * 10;

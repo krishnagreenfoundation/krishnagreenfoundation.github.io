@@ -56,7 +56,7 @@ Every page shares the same structure: skip-link → nav (+ mobile menu) → `<ma
 ## Design tokens
 
 All colours and fonts are CSS custom properties on `:root` in `styles.css`. Direction: **"The Working-Plan Register"** — the site reads as a forester's working-plan register (ledger paper, india ink, cross-hatched compartment maps, a registrar's stamp), not a generic eco-NGO page. Full token list, named rules, and component patterns are documented in `DESIGN.md`; the summary:
-- `--paper` / `--paper-2` / `--paper-3` — manila ledger paper page base / inset panels / aged edge (`#EFE6C9` / `#E6D9AE` / `#DDCC97`)
+- `--paper` / `--paper-2` / `--paper-3` — page base / inset panels / hover (`#FFFFFF` / `#F5F5F0` / `#EAEAE2`; overridden from the original manila per owner request)
 - `--ink` / `--ink-soft` / `--ink-faint` — india-ink text at three weights (`#1B1712` / `#4A4128` / `#6B5E3F`)
 - `--compartment` / `--compartment-3` / `--cat-urban` — the three site-category colours (reserve forest / eco-tourism park / urban forest)
 - `--stamp` — registrar red, reserved for verified facts and the donate CTA only (never decorative)
@@ -103,7 +103,7 @@ The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powere
 - `[PLANTING_YEAR]` — per-site in modal detail
 - `[MAINTENANCE_PERIOD]` — in modal approach list
 - `[80G / 12A]` — income-tax exemption certificates (still pending; CIN U94990AP2026NPL128077 and Section 8 Licence 191456 are already reflected in `about/index.html`)
-- `[PARTNER LOGO 1–4]` — CSR partner logos in the proof section
+- `[PARTNER LOGO 1–4]` — CSR partner logos; the block is commented out in `index.html`'s CSR proof section until real logos are approved
 - Social links (`[LINKEDIN]`, `[INSTAGRAM]`) — commented out in nav, mobile menu, and footer
 - Gallery captions — all 62 images currently read "From the field"; update individual `caption` values in the `IMAGES` array once site attribution is known
 - Founder portraits — `images/` currently has no portrait photos; swap initials for `<img>` in the founder cards when available
