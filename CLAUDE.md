@@ -42,11 +42,12 @@ One `index.html` per menu section, plus shared assets at the root:
 - **`js/donate.js`** — loaded only on `donate/index.html`: pledge-tier buttons, form validation + Web3Forms submit (same access key/pattern as `contact.js`, distinct subject line)
 - **`images/`** — site photos; `1.jpeg`–`62.jpeg` are the numbered field photos; `logo.jpeg` is the brand mark (256 px); `og-cover.jpg` is the 1200×630 social share image (built from field photo 16)
 - **`images/w800/`** — 800 px WebP copies of every field photo; cards, the mission band and the gallery use these (keep the full-size `.jpeg` originals). Make one for any new photo.
+- **`privacy/index.html`** — privacy statement (DPDP Act 2023). The single source of the text: every footer "Privacy" link points to `/privacy/`, and `js/common.js` intercepts the click, fetches that page and shows its `.privacy` article in a native `<dialog>` (falls back to normal navigation without JS or if the fetch fails). Edit the statement only here; update its effective date when you do.
 - **`404.html`** — branded not-found page (root-relative asset paths, `noindex`)
 
 All absolute URLs (canonical, og:url, sitemap, robots, JSON-LD) use the apex host `https://krishnagreenfoundation.com` — `www.` 301-redirects to it. The `#register` rows in `work/index.html` are a static copy for non-JS crawlers; if you edit `SITES`, regenerate them (or they'll be replaced on load anyway, but crawlers see the stale copy).
 
-Each page's `<head>` is duplicated (title/description/OG tags per page, same fonts/favicon/JSON-LD), and each page's nav/footer markup is duplicated with `aria-current="page"` hardcoded onto that page's own nav link — there's no templating layer, so a nav or footer change must be repeated across all eight `index.html` files.
+Each page's `<head>` is duplicated (title/description/OG tags per page, same fonts/favicon/JSON-LD), and each page's nav/footer markup is duplicated with `aria-current="page"` hardcoded onto that page's own nav link — there's no templating layer, so a nav or footer change must be repeated across all nine `index.html` files plus `404.html`.
 
 ## Architecture
 

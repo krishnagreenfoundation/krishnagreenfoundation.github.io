@@ -123,3 +123,24 @@ if (yr) yr.textContent = new Date().getFullYear();
   /* shortcut: curated headlines only; the old rss2json feed was CORS-blocked on this origin. Live news needs a server-side proxy. */
   render(fallback);
 })();
+
+/* ---------- privacy statement opens in a dialog; without JS or on fetch failure the link just navigates ---------- */
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href="/privacy/"]');
+  if (!a || !window.HTMLDialogElement || location.pathname.indexOf("/privacy/") === 0) return;
+  e.preventDefault();
+  var dlg = document.getElementById("privacyDialog");
+  if (dlg) { dlg.showModal(); return; }
+  fetch("/privacy/").then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); }).then(function (html) {
+    var art = new DOMParser().parseFromString(html, "text/html").querySelector(".privacy");
+    if (!art) throw new Error("no .privacy");
+    dlg = document.createElement("dialog");
+    dlg.id = "privacyDialog"; dlg.className = "pdlg"; dlg.setAttribute("aria-labelledby", "pv-h");
+    dlg.innerHTML = '<button class="pdlg__x" type="button" aria-label="Close privacy statement">×</button>';
+    dlg.appendChild(document.importNode(art, true));
+    dlg.querySelector(".pdlg__x").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); });   /* backdrop click */
+    document.body.appendChild(dlg);
+    dlg.showModal();
+  }).catch(function () { location.href = a.href; });
+});
