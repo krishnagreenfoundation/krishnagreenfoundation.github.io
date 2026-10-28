@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.krishnagreenfoundation.com/sitemap.xml
+Sitemap: https://krishnagreenfoundation.com/sitemap.xml

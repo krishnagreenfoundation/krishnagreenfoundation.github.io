@@ -40,7 +40,10 @@ One `index.html` per menu section, plus shared assets at the root:
 - **`js/gallery.js`** — loaded only on `gallery/index.html`: `IMAGES` array, gallery render, carousel arrows
 - **`js/contact.js`** — loaded only on `contact/index.html`: form validation + Web3Forms submit
 - **`js/donate.js`** — loaded only on `donate/index.html`: pledge-tier buttons, form validation + Web3Forms submit (same access key/pattern as `contact.js`, distinct subject line)
-- **`images/`** — site photos; `1.jpeg`–`62.jpeg` are the numbered field photos; `logo.jpeg` is the brand mark
+- **`images/`** — site photos; `1.jpeg`–`62.jpeg` are the numbered field photos; `logo.jpeg` is the brand mark (256 px); `og-cover.jpg` is the 1200×630 social share image (built from field photo 16)
+- **`404.html`** — branded not-found page (root-relative asset paths, `noindex`)
+
+All absolute URLs (canonical, og:url, sitemap, robots, JSON-LD) use the apex host `https://krishnagreenfoundation.com` — `www.` 301-redirects to it. The `#register` rows in `work/index.html` are a static copy for non-JS crawlers; if you edit `SITES`, regenerate them (or they'll be replaced on load anyway, but crawlers see the stale copy).
 
 Each page's `<head>` is duplicated (title/description/OG tags per page, same fonts/favicon/JSON-LD), and each page's nav/footer markup is duplicated with `aria-current="page"` hardcoded onto that page's own nav link — there's no templating layer, so a nav or footer change must be repeated across all eight `index.html` files.
 
@@ -95,7 +98,6 @@ The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powere
 
 ## Placeholder content still needed
 
-- `[SOCIAL_SHARE_IMAGE_URL]` — OG image in `<head>`
 - `[MONITORING_METHOD]` — survival audit method in impact section note
 - `[KEY_SPECIES]` — native species names in approach step (omitted from the modal until known)
 - `[PLANTING_YEAR]` — per-site; the modal omits the row until real years are on file
