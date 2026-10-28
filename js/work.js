@@ -19,10 +19,30 @@ var SITES = [
 /* ---------- render register ---------- */
 var register = document.getElementById("register");
 if (register) {
-  function drawRegister(filter) {
+  var parcels = document.querySelectorAll(".compmap .parcel");
+  var parcelNos = document.querySelectorAll(".compmap .parcel-no");
+  var compmap = document.querySelector(".compmap");
+  var current = "all";
+
+  /* parcels are drawn in SITES order, so index i is SITES[i] */
+  function paintMap(filter, litNo) {
+    if (!compmap) return;
+    SITES.forEach(function (s, i) {
+      var out = filter !== "all" && s.cat !== filter, lit = s.no === litNo;
+      [parcels[i], parcelNos[i]].forEach(function (el) {
+        if (!el) return;
+        el.classList.toggle("is-out", out);
+        el.classList.toggle("is-lit", lit);
+      });
+    });
+    compmap.classList.toggle("has-lit", !!litNo);
+  }
+
+  function drawRegister(filter, animate) {
+    current = filter;
     var rows = SITES.filter(function (s) { return filter === "all" || s.cat === filter; });
-    register.innerHTML = rows.map(function (s) {
-      return '<button class="site reveal is-visible" data-no="' + s.no + '" aria-haspopup="dialog">'
+    register.innerHTML = rows.map(function (s, i) {
+      return '<button class="site reveal is-visible' + (animate ? ' is-entering" style="--i:' + i : '') + '" data-no="' + s.no + '" aria-haspopup="dialog">'
         + '<span class="site__no">' + s.no + '</span>'
         + '<span class="site__mid"><span class="site__name">' + esc(s.name) + '</span>'
         + '<br><span class="site__loc">' + esc(s.loc) + '</span>'
@@ -38,6 +58,7 @@ if (register) {
     var totP = rows.reduce(function (a, s) { return a + s.plants; }, 0);
     document.getElementById("regFoot").textContent =
       "Showing " + rows.length + " of 9 sites · " + fmt(totA) + " acres · " + fmt(totP) + " saplings · 100% survival recorded.";
+    paintMap(filter);
   }
   drawRegister("all");
 
@@ -46,9 +67,24 @@ if (register) {
     btn.addEventListener("click", function () {
       document.querySelectorAll(".filters button").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
       btn.setAttribute("aria-pressed", "true");
-      drawRegister(btn.getAttribute("data-filter"));
+      drawRegister(btn.getAttribute("data-filter"), true);
+    });
+    /* live preview: the map shows a filter's result before it is committed */
+    ["mouseenter", "focus"].forEach(function (ev) {
+      btn.addEventListener(ev, function () { paintMap(btn.getAttribute("data-filter")); });
+    });
+    ["mouseleave", "blur"].forEach(function (ev) {
+      btn.addEventListener(ev, function () { paintMap(current); });
     });
   });
+
+  /* the row under the pointer or keyboard focus inks its parcel on the map */
+  function rowNo(e) { var b = e.target.closest && e.target.closest(".site"); return b ? b.getAttribute("data-no") : null; }
+  register.addEventListener("mouseover", function (e) { paintMap(current, rowNo(e)); });
+  register.addEventListener("focusin", function (e) { paintMap(current, rowNo(e)); });
+  register.addEventListener("mouseleave", function () { paintMap(current); });
+  register.addEventListener("focusout", function () { paintMap(current); });
+  register.addEventListener("animationend", function (e) { e.target.classList.remove("is-entering"); });
 
   /* ---------- case-study modal ---------- */
   var modal = document.getElementById("modal");
@@ -73,19 +109,17 @@ if (register) {
       + '<div><dt>Area</dt><dd>' + fmt(s.acres) + ' acres</dd></div>'
       + '<div><dt>Saplings</dt><dd>' + fmt(s.plants) + '</dd></div>'
       + '<div><dt>Survival</dt><dd>100%</dd></div>'
-      + '<div><dt>Planting year</dt><dd>[PLANTING_YEAR]</dd></div>'
       + '<div><dt>Status</dt><dd>Completed</dd></div>'
       + '</dl>'
-      + '<div class="md__gallery"><div class="md__ph">[SITE PHOTO]<br>replace with real image</div><div class="md__ph">[SITE PHOTO]<br>replace with real image</div></div>'
-      + '<section><h4>The challenge</h4><p>' + challengeText(s.cat) + ' <span style="color:#9a9078">[SITE_SPECIFIC_CONTEXT]</span></p></section>'
+      + '<section><h4>The challenge</h4><p>' + challengeText(s.cat) + '</p></section>'
       + '<section><h4>Our role &amp; approach</h4><ul>'
       + '<li>Surveyed the site and prepared the ground: pitting, soil work and protective fencing.</li>'
-      + '<li>Selected native, site-suited species [KEY_SPECIES] raised to plantable size.</li>'
+      + '<li>Selected native, site-suited species raised to plantable size.</li>'
       + '<li>Planted ' + fmt(s.plants) + ' saplings across ' + fmt(s.acres) + ' acres, timed to the monsoon.</li>'
-      + '<li>Maintained and monitored through the vulnerable early years [MAINTENANCE_PERIOD].</li>'
+      + '<li>Maintained and monitored through the vulnerable early years.</li>'
       + '</ul></section>'
       + '<section><h4>What we delivered</h4><p>' + fmt(s.acres) + ' acres restored and ' + fmt(s.plants) + ' native saplings established, with survival tracked site-wide and recorded at 100%.</p></section>'
-      + '<section><h4>Results &amp; impact</h4><p>100% survival recorded across the site. <span style="color:#9a9078">[Add further verifiable outcomes: canopy, species count, community benefit; only where measured.]</span></p></section>'
+      + '<section><h4>Results &amp; impact</h4><p>100% survival recorded across the site.</p></section>'
       + '<div class="md__cta"><a class="btn btn--gold" href="/contact/" data-close>Discuss a project like this <span class="arw" aria-hidden="true">→</span></a></div>';
 
     modal.setAttribute("data-open", "true");

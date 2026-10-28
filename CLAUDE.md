@@ -99,9 +99,9 @@ The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powere
 
 - `[SOCIAL_SHARE_IMAGE_URL]` — OG image in `<head>`
 - `[MONITORING_METHOD]` — survival audit method in impact section note
-- `[KEY_SPECIES]` — native species names in approach step and modal
-- `[PLANTING_YEAR]` — per-site in modal detail
-- `[MAINTENANCE_PERIOD]` — in modal approach list
+- `[KEY_SPECIES]` — native species names in approach step (omitted from the modal until known)
+- `[PLANTING_YEAR]` — per-site; the modal omits the row until real years are on file
+- `[MAINTENANCE_PERIOD]` — omitted from the modal approach list until known; site photos and site-specific context are likewise left out of the modal rather than shown as placeholders
 - `[80G / 12A]` — income-tax exemption certificates (still pending; CIN U94990AP2026NPL128077 and Section 8 Licence 191456 are already reflected in `about/index.html`)
 - `[PARTNER LOGO 1–4]` — CSR partner logos; the block is commented out in `index.html`'s CSR proof section until real logos are approved
 - Social links (`[LINKEDIN]`, `[INSTAGRAM]`) — commented out in nav, mobile menu, and footer

@@ -23,6 +23,8 @@ colors:
   night-2: "#241E14"
   night-line: "#4A3F27"
   bone: "#F4EEDA"
+  bone-soft: "#CBC3A2"
+  bone-faint: "#B9AD86"
   gold: "#B8862E"
   gold-ink: "#6B4A12"
   line: "#B7A467"
@@ -43,6 +45,32 @@ typography:
     fontSize: "12px"
     fontWeight: 400
     letterSpacing: "0.05em"
+  meta:
+    fontSize: "13px"
+  small:
+    fontSize: "14.5px"
+  body-s:
+    fontSize: "15px"
+  lead:
+    fontSize: "18px"
+  title:
+    fontSize: "20px"
+  lede:
+    fontSize: "clamp(16px,1.8vw,19px)"
+  h3:
+    fontSize: "clamp(18px,2vw,23px)"
+  h2-sm:
+    fontSize: "clamp(22px,3.2vw,36px)"
+  h2:
+    fontSize: "clamp(26px,3.6vw,42px)"
+  statement:
+    fontSize: "clamp(28px,4.4vw,52px)"
+  display-xl:
+    fontSize: "clamp(32px,4.8vw,58px)"
+  figure:
+    fontSize: "clamp(30px,3.8vw,50px)"
+  figure-xl:
+    fontSize: "clamp(50px,7vw,86px)"
 rounded:
   none: "0px"
   hairline: "2px"
@@ -116,6 +144,7 @@ Warm manila-paper neutrals carry the page; deep compartment greens and a surveyo
 - **Ledger Hairline** (`--line`, #B7A467): rules on paper.
 - **Ledger Cover** (`--night`, #17130E) / **Raised Panel** (`--night-2`, #241E14) / **Night Hairline** (`--night-line`, #4A3F27): dark sections (page-banner cartouches, footer, CSR audit panel).
 - **Bone** (`--bone`, #F4EEDA): text and icon color on dark grounds.
+- **Bone Soft** (`--bone-soft`, #CBC3A2) / **Bone Faint** (`--bone-faint`, #B9AD86): secondary text on dark grounds: ledes, nav links and stat labels use soft; footer links and captions use faint. Never hard-code another muted bone hex.
 
 ### Named Rules
 **The One Stamp Rule.** Registrar red is spent on verified facts and the single primary donation action only. A screen with two red elements has diluted the seal's meaning.
@@ -135,6 +164,9 @@ Warm manila-paper neutrals carry the page; deep compartment greens and a surveyo
 - **Body** (400, `clamp(1rem, 1.8vw, 1.1875rem)` for lede / 16px base for paragraph, line-height 1.6–1.65): all prose, Public Sans, max ~58ch measure.
 - **Label** (400–700, 12px floor, letter-spacing 0.03–0.12em, uppercase): every ledger tag, nav item, table header, stat caption, form label — always Courier Prime.
 - **Ledger numerals** (700, tabular-nums): all statistics and data figures use `font-variant-numeric: tabular-nums` so columns of numbers align like a real ledger.
+
+### Type Ramp (tokens in `styles.css` `:root`)
+Every font-size uses a `--fs-*` token: `label` 12 · `meta` 13 · `small` 14.5 · `body-s` 15 · `body` 16 · `lead` 18 · `title` 20, then the fluid steps `lede`, `h3`, `h2-sm`, `h2`, `statement`, `display`, `figure`, `figure-xl`. One role, one token: two section headlines never get different clamps. The only literal sizes left are decorative glyphs (the 10px seal lettering, 24px founder initials, 26px step stamp numerals), which are `aria-hidden` or ornamental, not reading text.
 
 ### Named Rules
 **The 12px Floor Rule.** No functional or label text ever ships below 12px, even inside dense ledger chips — legibility outranks density in this system.
@@ -189,13 +221,21 @@ Radius is functionally zero (`--radius: 2px`) everywhere — buttons, inputs, pa
 - **Error:** border and message switch to `--stamp` red.
 
 ### Navigation
-- **Style (amended 2026-09-17):** a solid `--night` (deep near-black) sticky bar, not the paper ground, so it stays legible and distinct now that the page ground is white. Each link is a Courier Prime uppercase label in its own night-ruled cell (`border-left` hairline in `--night-line`, shared bottom rule), text in a muted bone tone (`#C9BE99`) that brightens to full `--bone` on hover/active. The underline accent is registrar red (`--stamp`) on hover, brass gold (`--gold`) on the active page, so the two states stay distinguishable on a dark ground. The nav's CTA button uses the `.btn--onDark` variant (bone fill / night text) instead of the default ink-fill button, which would have near-zero contrast on this background. Mobile collapses to a full-width `--night` dropdown panel with Old Standard TT link labels in bone.
+- **Style (amended 2026-09-17):** a solid `--night` (deep near-black) sticky bar, not the paper ground, so it stays legible and distinct now that the page ground is white. Each link is a Courier Prime uppercase label in its own night-ruled cell (`border-left` hairline in `--night-line`, shared bottom rule), text in `--bone-soft` that brightens to full `--bone` on hover/active. The underline accent is registrar red (`--stamp`) on hover, brass gold (`--gold`) on the active page, so the two states stay distinguishable on a dark ground. The nav's CTA button uses the `.btn--onDark` variant (bone fill / night text) instead of the default ink-fill button, which would have near-zero contrast on this background. Mobile collapses to a full-width `--night` dropdown panel with Old Standard TT link labels in bone.
 
 ### The Compartment Map (signature component)
 A hand-authored SVG diagram of the nine registered sites as numbered rectangular parcels, each parcel's width proportional to its real recorded acreage and its fill a cross-hatch pattern keyed to category (diagonal hatch = reserve forest, dot pattern = eco-tourism park, vertical hatch = urban forest). **Amended 2026-09-17:** it now appears only atop the site register (`/work/`), paired with its swatch legend, having been replaced in the home hero by the seed-to-tree scene below. It is explicitly labeled as a schematic, not a geographic survey, so it never overstates its own precision.
 
 ### The Seed-to-Tree Scene (home hero visual, added 2026-09-17)
-A hand-authored SVG animation in the home hero's right column: a line-art child (matching the site's 1.5-2px-stroke `currentColor` icon style) plants a seed, a trunk draws itself upward (`stroke-dashoffset`), two branches follow, and a five-circle canopy in the compartment-green palette (`--compartment`, `--compartment-2`, `--compartment-3`, `--leaf-2`, `--leaf-5`) pops in. Once grown, small O2 particles (`--leaf-1`) drift up and out while muted CO2 particles (`#9C8E68`) drift in toward the canopy and fade, an infinite idle loop illustrating gas exchange. Plays once via `IntersectionObserver` when scrolled into view (`js/common.js`, `#seedScene`), then settles into the particle loop; under `prefers-reduced-motion` it renders the fully-grown tree immediately with no motion and no particles. This is one of the few hand-rolled decorative SVGs in the system, justified because the brief explicitly called for this narrative (child plants seed, tree grows, tree exchanges O2/CO2), the same bar that allows the falling-leaf layer.
+A hand-authored SVG animation in the home hero's right column: a line-art child (matching the site's 1.5-2px-stroke `currentColor` icon style) plants a seed, a trunk draws itself upward (`stroke-dashoffset`), two branches follow, and a five-circle canopy in the compartment-green palette (`--compartment`, `--compartment-2`, `--compartment-3`, `--leaf-2`, `--leaf-5`) pops in. Once grown, small O2 particles (`--leaf-1`) drift up and out while muted CO2 particles (`--bone-faint`) drift in toward the canopy and fade, an infinite idle loop illustrating gas exchange. Plays once via `IntersectionObserver` when scrolled into view (`js/common.js`, `#seedScene`), then settles into the particle loop; under `prefers-reduced-motion` it renders the fully-grown tree immediately with no motion and no particles. This is one of the few hand-rolled decorative SVGs in the system, justified because the brief explicitly called for this narrative (child plants seed, tree grows, tree exchanges O2/CO2), the same bar that allows the falling-leaf layer.
+
+## Motion
+
+One motion language: `--ease-out` (`cubic-bezier(.16,1,.3,1)`) for arrivals, exits faster than entrances, nothing bounces.
+- **Register ↔ map (signature, `/work/`):** hovering or focusing a filter previews its result on the compartment map before it is committed; parcels outside the active filter recede to 16% opacity; the register row under the pointer or keyboard focus inks its parcel (4.5px stroke) while the rest drop to half. Committing a filter rules the new rows in left to right (`clip-path` wipe, 40ms stagger).
+- **Seal stamp:** a `.seal` inside a revealed notice lands once (scale 1.7 → 1, rotating into its -7° hand-stamped angle). Never loops.
+- **Case-file drawer:** slides 56px in from the right over a fading scrim (keyframes, because the modal toggles `display`).
+- **Reduced motion:** all keyframes stop and nothing moves, but opacity, colour and stroke transitions stay so filter state and focus still read.
 
 ## Do's and Don'ts
 
