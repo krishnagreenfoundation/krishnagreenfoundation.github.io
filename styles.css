@@ -270,13 +270,6 @@ b,strong{font-weight:600}
   font-family:var(--display); font-size:var(--fs-display);
   color:var(--bone); max-width:22ch; line-height:1.08;
 }
-.page-banner__ref{
-  position:absolute; bottom:clamp(16px,2.4vw,26px); right:clamp(16px,2.4vw,26px);
-  font-family:var(--mono); font-size:var(--fs-label); letter-spacing:.08em; text-transform:uppercase;
-  color:var(--gold); text-align:right; line-height:1.5; pointer-events:none;
-}
-/* narrow banners: no free corner for the decorative stamp, and in flow it would read as an eyebrow */
-@media(max-width:640px){ .page-banner__ref{display:none} }
 .page-banner__stats{
   display:flex; flex-wrap:wrap; gap:0;
   margin-top:36px; border-top:1px solid var(--night-line);
