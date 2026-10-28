@@ -41,6 +41,7 @@ One `index.html` per menu section, plus shared assets at the root:
 - **`js/contact.js`** — loaded only on `contact/index.html`: form validation + Web3Forms submit
 - **`js/donate.js`** — loaded only on `donate/index.html`: pledge-tier buttons, form validation + Web3Forms submit (same access key/pattern as `contact.js`, distinct subject line)
 - **`images/`** — site photos; `1.jpeg`–`62.jpeg` are the numbered field photos; `logo.jpeg` is the brand mark (256 px); `og-cover.jpg` is the 1200×630 social share image (built from field photo 16)
+- **`images/w800/`** — 800 px WebP copies of every field photo; cards, the mission band and the gallery use these (keep the full-size `.jpeg` originals). Make one for any new photo.
 - **`404.html`** — branded not-found page (root-relative asset paths, `noindex`)
 
 All absolute URLs (canonical, og:url, sitemap, robots, JSON-LD) use the apex host `https://krishnagreenfoundation.com` — `www.` 301-redirects to it. The `#register` rows in `work/index.html` are a static copy for non-JS crawlers; if you edit `SITES`, regenerate them (or they'll be replaced on load anyway, but crawlers see the stale copy).
@@ -52,7 +53,7 @@ Each page's `<head>` is duplicated (title/description/OG tags per page, same fon
 Every page shares the same structure: skip-link → nav (+ mobile menu) → `<main id="main">` with that page's section(s) → footer → page-specific `<script>` tags (`js/common.js` always first).
 
 - `js/work.js` — `SITES` array is the single source of truth for all nine plantation sites (`no`, `name`, `loc`, `cat`, `acres`, `plants`); `CAT` maps category keys (`reserve`, `park`, `urban`) to display strings; `drawRegister(filter)` renders register rows and recalculates the footer totals line; filter buttons update `aria-pressed` and call `drawRegister`; the case-study modal (`openCase(no)`, `closeCase()`) has a focus-trap and Escape handler, and its own `challengeText(cat)` copy generator
-- `js/gallery.js` — `IMAGES` array (62 entries, `../images/1.jpeg` … `../images/62.jpeg`) injected into `#gallery-grid`; carousel arrows (`#galPrev`, `#galNext`) scroll the track by one viewport width, `syncArrows()` disables the relevant button at each end
+- `js/gallery.js` — `IMAGES` array (62 entries, `../images/w800/1.webp` … `../images/w800/62.webp`) injected into `#gallery-grid`; carousel arrows (`#galPrev`, `#galNext`) scroll the track by one viewport width, `syncArrows()` disables the relevant button at each end
 - `js/contact.js` — `setErr(id, on)` validation helper, submit handler POSTs JSON to **Web3Forms** (`https://api.web3forms.com/submit`); the access key is embedded in this file
 - `js/common.js` — `fmt(n)`/`esc(s)` (`en-IN` locale number formatter and HTML-escape helper, used by `work.js` and `gallery.js`), mobile nav toggle, scroll-reveal via `IntersectionObserver` (any element with class `reveal` fades/slides in when it enters the viewport; add `reveal` to new sections and they animate automatically, falling back to `is-visible` immediately when `prefers-reduced-motion` is set), footer year, and the **news ticker** (see below)
 
@@ -80,13 +81,13 @@ The register rows, filter footer totals, and modal detail all derive from this a
 
 Add entries to the `IMAGES` array in `js/gallery.js` and drop the file in `images/`:
 ```js
-{src:"../images/filename.jpg", caption:"Site name — before/after"}
+{src:"../images/w800/filename.webp", caption:"Site name — before/after"}
 ```
 The gallery renders as a horizontal carousel (3 items visible on desktop, 2 at ≤900 px, 1 at ≤520 px). If `IMAGES` is empty the gallery shows "Photos coming soon."
 
 ## News ticker
 
-The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powered by `common.js`. On load it fetches 8 headlines from Google News RSS via the `rss2json` public API; if that fails it falls back to 8 hardcoded items defined in the `fallback` array near the top of the ticker IIFE in `common.js`. To change the fallback headlines, edit that array directly. The animation duration scales automatically to content width (`track.scrollWidth / 80`). The ticker only renders on pages that contain `#tickerTrack` — currently only `index.html`.
+The scrolling ticker on the home page (`#tickerTrack` in `index.html`) is powered by `common.js`. It renders the 8 curated headlines in the `fallback` array of the ticker IIFE in `common.js` (the earlier rss2json live feed was removed: that API rejects this origin via CORS). To change headlines, edit that array; live news would need a server-side proxy. The animation duration scales automatically to content width (`track.scrollWidth / 80`). The ticker only renders on pages that contain `#tickerTrack` — currently only `index.html`.
 
 ## Donations
 

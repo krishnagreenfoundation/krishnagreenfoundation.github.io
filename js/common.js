@@ -120,17 +120,6 @@ if (yr) yr.textContent = new Date().getFullYear();
     track.style.animationDuration = dur + "s";
   }
 
-  var RSS_URL = "https://news.google.com/rss/search?q=reforestation+plantation+afforestation+India+forest+restoration&hl=en-IN&gl=IN&ceid=IN:en";
-  var API = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL) + "&count=8";
-
-  fetch(API, { cache: "default" })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (data.status !== "ok" || !data.items || !data.items.length) throw new Error();
-      var items = data.items.map(function (item) {
-        return { title: item.title.replace(/ - [^-]+$/, ""), link: item.link };
-      });
-      render(items);
-    })
-    .catch(function () { render(fallback); });
+  /* shortcut: curated headlines only; the old rss2json feed was CORS-blocked on this origin. Live news needs a server-side proxy. */
+  render(fallback);
 })();
