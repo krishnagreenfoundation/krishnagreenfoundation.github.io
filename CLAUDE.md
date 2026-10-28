@@ -26,7 +26,7 @@ This repo also carries `PRODUCT.md` (durable product/audience/constraint facts) 
 
 One `index.html` per menu section, plus shared assets at the root:
 
-- **`index.html`** (root) — Home: register-cover hero with the compartment-map diagram, impact stats, site dockets, CSR audit panel, CTA ledger
+- **`index.html`** (root) — Home: full-photo hero, overlapping impact-stat card, programme cards, mission band, four steps, values, CSR band, CTA tiles
 - **`work/index.html`** — site register (all nine sites, filterable) + compartment map + capabilities + case-file modal
 - **`approach/index.html`** — the four-discipline "how we work" section
 - **`gallery/index.html`** — the photo carousel ("exhibit plates")
@@ -35,7 +35,7 @@ One `index.html` per menu section, plus shared assets at the root:
 - **`donate/index.html`** — donation pledge page: honest 80G/12A-pending notice, illustrative pledge tiers, lead-capture form (no payment gateway)
 - **`contact/index.html`** — contact form
 - **`styles.css`** — all CSS, shared by every page (design tokens → global reset → one block per section — see `DESIGN.md` for the documented token/component system)
-- **`js/common.js`** — loaded on every page: right-click disable, `fmt()`/`esc()` helpers, mobile nav toggle, scroll-reveal, footer year, news ticker
+- **`js/common.js`** — loaded on every page: right-click disable, `fmt()`/`esc()` helpers, mobile nav toggle, header scroll state, scroll-reveal, impact-figure count-up, footer year, news ticker
 - **`js/work.js`** — loaded only on `work/index.html`: `SITES`/`CAT` data, register render + filters, case-file modal
 - **`js/gallery.js`** — loaded only on `gallery/index.html`: `IMAGES` array, gallery render, carousel arrows
 - **`js/contact.js`** — loaded only on `contact/index.html`: form validation + Web3Forms submit
@@ -55,17 +55,15 @@ Every page shares the same structure: skip-link → nav (+ mobile menu) → `<ma
 
 ## Design tokens
 
-All colours and fonts are CSS custom properties on `:root` in `styles.css`. Direction: **"The Working-Plan Register"** — the site reads as a forester's working-plan register (ledger paper, india ink, cross-hatched compartment maps, a registrar's stamp), not a generic eco-NGO page. Full token list, named rules, and component patterns are documented in `DESIGN.md`; the summary:
-- `--paper` / `--paper-2` / `--paper-3` — page base / inset panels / hover (`#FFFFFF` / `#F5F5F0` / `#EAEAE2`; overridden from the original manila per owner request)
-- `--ink` / `--ink-soft` / `--ink-faint` — india-ink text at three weights (`#1B1712` / `#4A4128` / `#6B5E3F`)
-- `--compartment` / `--compartment-3` / `--cat-urban` — the three site-category colours (reserve forest / eco-tourism park / urban forest)
-- `--stamp` — registrar red, reserved for verified facts and the donate CTA only (never decorative)
-- `--night` / `--night-2` / `--night-line` — dark ledger-cover sections (page banners, footer, CSR panel)
-- `--bone` — text/icon colour on dark sections
-- `--gold` / `--gold-ink` — brass seal accent
-- `--line` — ruled hairline on paper
+All colours and fonts are CSS custom properties on `:root` in `styles.css`. Direction: **"Living Canopy"**, a photo-led professional conservation look (replaced the earlier ledger/register look on 2026-10-28). Token names were kept from the old system so inline page styles still resolve; values changed. Full system in `DESIGN.md`; summary:
+- `--compartment` / `--compartment-2` / `--compartment-3` / `--cat-urban` — forest brand green, leaf hover, eco-park green, urban blue (also the three site categories)
+- `--stamp` — terracotta action colour: Donate, submit, errors (one per screen)
+- `--paper` / `--paper-2` — white / sand section grounds; `--night*` — footer and dark bands; `--gold` — highlights on dark/photo
+- `--fs-*` — the type ramp; every font-size uses one
 
-Fonts: Old Standard TT (gazetteer/register serif display) · Public Sans (civic-register UI sans) · Courier Prime (ledger data/labels — numbers, tags, mono). Radius is functionally zero (`--radius: 2px`) everywhere except the circular registrar seal.
+Fonts: Fraunces (display) · Manrope (everything else; `--mono` now aliases it). Cards are 20px-rounded, buttons are pills.
+
+Photos: `images/1.jpeg`–`62.jpeg` are the foundation's real field photos and are the only images used for sites, cards and the gallery. `images/stock/` holds CC0 decorative hero/banner photos (sources in `images/stock/CREDITS.md`); each inner page picks its banner via `style="--banner:url(...)"` on `.page-banner`.
 
 ## Adding or editing sites
 

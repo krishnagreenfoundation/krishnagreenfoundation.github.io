@@ -33,20 +33,35 @@ if ("IntersectionObserver" in window && !reduce) {
   document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
 }
 
-/* ---------- seed-to-tree hero animation ---------- */
-var seedScene = document.getElementById("seedScene");
-if (seedScene && !reduce) {
-  if ("IntersectionObserver" in window) {
-    var seedIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { seedScene.classList.add("play"); seedIO.unobserve(seedScene); }
-      });
-    }, { threshold: 0.3 });
-    seedIO.observe(seedScene);
-  } else {
-    seedScene.classList.add("play");
-  }
+/* ---------- header gains a hairline + shadow once the page scrolls ---------- */
+if (nav) {
+  var onScroll = function () { nav.classList.toggle("is-scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 }
+
+/* ---------- impact figures count up when they come into view ---------- */
+(function () {
+  var figs = document.querySelectorAll(".sbar-n, .pb-stat__n, .result-strip__n");
+  if (!figs.length || reduce || !("IntersectionObserver" in window)) return;
+  function run(el) {
+    var node = el.firstChild;                        /* leading text node; a % <span> may follow */
+    var m = node && node.nodeType === 3 && node.nodeValue.match(/^([\d,]+)(.*)$/);
+    if (!m) return;
+    var target = parseInt(m[1].replace(/,/g, ""), 10), rest = m[2], t0 = null, D = 1600;
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 4);   /* ease-out quart */
+      node.nodeValue = fmt(Math.round(target * e)) + rest;
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var cio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); } });
+  }, { threshold: 0.6 });
+  figs.forEach(function (el) { cio.observe(el); });
+})();
 
 /* ---------- ambient falling leaves ---------- */
 if (!reduce) {

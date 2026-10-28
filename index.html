@@ -31,10 +31,11 @@
   <link rel="icon" href="images/logo.jpeg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="images/logo.jpeg" />
 
+  <link rel="preload" as="image" href="images/stock/hero-sunlit-canopy.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -162,74 +163,26 @@
 
   <main id="main">
 
-    <!-- ========================== HERO - register cover page ========================== -->
+    <!-- ========================== HERO ========================== -->
     <section class="hero" aria-labelledby="hero-h">
+      <img class="hero__bg" src="images/stock/hero-sunlit-canopy.jpg" alt="" fetchpriority="high" />
       <div class="wrap">
-        <div class="hero__cover">
-
-          <div class="hero__cover-top">
-            <div class="hero__text">
-              <h1 id="hero-h" class="display hero__h1">
-                We turn open land into forest,<br>
-                and <em>keep every sapling alive.</em>
-              </h1>
-              <p class="lede hero__lede">
-                Across Andhra Pradesh we restore reserve forests, eco-tourism parks and urban forests,
-                then stay long enough to see them survive. 2,14,667 native saplings across 296 acres.
-                100% survival recorded.
-              </p>
-              <div class="hero__cta">
-                <a class="btn" href="/work/">Open the register <span class="arw" aria-hidden="true">→</span></a>
-                <a class="btn btn--ghost" href="/approach/">How we work</a>
-              </div>
-              <div class="hero__trust" aria-label="Registration facts">
-                <span class="trust-badge">Section 8 Non-Profit</span>
-                <span class="trust-badge">Lic. 191456</span>
-                <span class="trust-badge">CIN U94990AP2026NPL128077</span>
-              </div>
-            </div>
-
-            <div class="hero__scene-wrap">
-              <svg class="seed-scene" id="seedScene" viewBox="0 0 300 400" role="img"
-                aria-label="Animation: a child plants a seed, it grows into a tree, and the tree releases oxygen while absorbing carbon dioxide">
-                <line class="scene-ground" x1="15" y1="370" x2="285" y2="370" />
-
-                <g class="child">
-                  <circle class="child-head" cx="78" cy="270" r="13" />
-                  <path class="child-body" d="M78 283 C 82 300, 78 315, 70 330 C 64 345, 68 360, 85 368" />
-                  <path class="arm" d="M82 292 C 100 300, 120 320, 148 362" />
-                </g>
-
-                <ellipse class="seed" cx="150" cy="368" rx="4" ry="3" />
-
-                <path class="trunk" d="M150 368 C 147 330, 153 260, 150 195" />
-                <path class="branch1" d="M150 260 C 165 250, 178 240, 185 225" />
-                <path class="branch2" d="M150 240 C 135 228, 122 218, 112 205" />
-
-                <g class="canopy">
-                  <circle cx="150" cy="170" r="42" style="--fill:var(--compartment)" />
-                  <circle cx="113" cy="192" r="30" style="--fill:var(--compartment-2)" />
-                  <circle cx="187" cy="197" r="28" style="--fill:var(--compartment-3)" />
-                  <circle cx="138" cy="138" r="26" style="--fill:var(--leaf-2)" />
-                  <circle cx="176" cy="148" r="24" style="--fill:var(--leaf-5)" />
-                </g>
-
-                <g class="breath" aria-hidden="true">
-                  <g class="o2" style="--delay:3.4s; --dx:34px; --x:140px; --y:140px"><circle r="5" /></g>
-                  <g class="o2" style="--delay:4.1s; --dx:-30px; --x:170px; --y:130px"><circle r="4.5" /></g>
-                  <g class="o2" style="--delay:4.8s; --dx:22px; --x:118px; --y:160px"><circle r="5" /></g>
-                  <g class="o2" style="--delay:5.5s; --dx:-24px; --x:192px; --y:165px"><circle r="4" /></g>
-                  <g class="co2" style="--delay:3.8s; --x:40px; --y:150px"><circle r="6" /></g>
-                  <g class="co2" style="--delay:4.6s; --x:255px; --y:180px"><circle r="5.5" /></g>
-                  <g class="co2" style="--delay:5.4s; --x:60px; --y:210px"><circle r="5" /></g>
-                </g>
-              </svg>
-            </div>
+        <div class="hero__text">
+          <h1 id="hero-h" class="display hero__h1">We turn open land into forest, and <em>keep every sapling alive.</em></h1>
+          <p class="lede hero__lede">
+            Across Andhra Pradesh we restore reserve forests, eco-tourism parks and urban forests,
+            then stay long enough to see them survive. 2,14,667 native saplings across 296 acres.
+            100% survival recorded.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--onDark" href="/work/">Explore our work <span class="arw" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="/approach/">How we work</a>
           </div>
-
-          <p class="hero__scene-cap">Every project starts with one seed and ends with a living forest,
-            breathing in carbon dioxide and breathing out oxygen for decades.</p>
-
+          <div class="hero__trust" aria-label="Registration facts">
+            <span class="trust-badge">Section 8 Non-Profit</span>
+            <span class="trust-badge">Lic. 191456</span>
+            <span class="trust-badge">CIN U94990AP2026NPL128077</span>
+          </div>
         </div>
       </div>
     </section>
@@ -328,16 +281,20 @@
     <!-- ========================== MISSION PANEL ========================== -->
     <section class="mission-strip" aria-labelledby="ms-h">
       <div class="wrap mission-strip__in">
+        <figure class="mission-strip__photo reveal" style="margin:0">
+          <img src="images/58.jpeg" alt="Freshly prepared planting rows stretching to the hills at one of our sites" loading="lazy" />
+          <figcaption>From one of our planting sites</figcaption>
+        </figure>
         <div class="mission-strip__left reveal">
           <h2 id="ms-h" class="display">Planted to survive.<br><em>Not just to count.</em></h2>
-        </div>
-        <div class="mission-strip__right reveal">
-          <p>Most plantation drives measure success at planting day. We measure it years later,
-            when the forest is still standing. Our site register is public, our survival data is
-            verified on-ground, and we don't leave until the trees can stand on their own.</p>
-          <a href="/about/" class="btn btn--onDark" style="margin-top:28px;display:inline-flex">
-            Our story <span class="arw" aria-hidden="true">→</span>
-          </a>
+          <div class="mission-strip__right">
+            <p>Most plantation drives measure success at planting day. We measure it years later,
+              when the forest is still standing. Our site register is public, our survival data is
+              verified on-ground, and we don't leave until the trees can stand on their own.</p>
+            <a href="/about/" class="btn" style="margin-top:28px">
+              Our story <span class="arw" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
