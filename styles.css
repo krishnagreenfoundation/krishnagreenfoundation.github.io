@@ -360,7 +360,7 @@ input,select,textarea{caret-color:var(--compartment)}
 .site__tag[data-cat="urban"]::before{background:var(--cat-urban)}
 .site__data{display:flex; gap:18px; align-items:baseline; font-size:var(--fs-meta); color:var(--ink-faint)}
 .site__data b{font-size:var(--fs-body); color:var(--ink); font-weight:800}
-.surv{font-weight:800; color:var(--compartment-2); background:var(--leaf-wash); padding:3px 10px; border-radius:999px}
+.surv{font-weight:800; color:var(--compartment); background:var(--leaf-wash); padding:3px 10px; border-radius:999px}
 .site__open{font-size:var(--fs-meta); font-weight:700; color:var(--compartment); white-space:nowrap}
 .reg__foot{margin-top:22px; font-size:var(--fs-meta); color:var(--ink-faint)}
 @media(max-width:900px){
@@ -565,7 +565,8 @@ input,select,textarea{caret-color:var(--compartment)}
 /* ===========================================================================
    GALLERY — field photo carousel
    ========================================================================== */
-.gallery__carousel{position:relative; margin-top:40px}
+.gallery__carousel{position:relative; margin-top:40px; container-type:inline-size}
+.gallery__track{min-height:calc((100cqw - 32px) / 3 * .75)}
 .gallery__track{display:flex; gap:16px; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory; scrollbar-width:none; padding-bottom:4px}
 .gallery__track::-webkit-scrollbar{display:none}
 .gallery__item{position:relative; overflow:hidden; flex:0 0 calc((100% - 32px) / 3); aspect-ratio:4/3; border-radius:18px; background:var(--paper-2); scroll-snap-align:start}
@@ -591,8 +592,8 @@ input,select,textarea{caret-color:var(--compartment)}
 .gallery__arrow:hover{background:var(--compartment); color:#fff; transform:translateY(-50%) scale(1.06)}
 .gallery__arrow:disabled{opacity:0; pointer-events:none}
 .gallery__note{margin-top:20px; font-size:var(--fs-meta); color:var(--ink-faint)}
-@media (max-width:900px){ .gallery__item{flex-basis:calc((100% - 16px) / 2)} .gallery__arrow--prev{left:8px} .gallery__arrow--next{right:8px} }
-@media (max-width:520px){ .gallery__item{flex-basis:100%} }
+@media (max-width:900px){ .gallery__track{min-height:calc((100cqw - 16px) / 2 * .75)} .gallery__item{flex-basis:calc((100% - 16px) / 2)} .gallery__arrow--prev{left:8px} .gallery__arrow--next{right:8px} }
+@media (max-width:520px){ .gallery__track{min-height:75cqw} .gallery__item{flex-basis:100%} }
 
 /* ===========================================================================
    FOUNDERS
