@@ -66,11 +66,11 @@ var IMAGES = [
 var galleryGrid = document.getElementById("gallery-grid");
 if (galleryGrid) {
   if (IMAGES.length) {
-    galleryGrid.innerHTML = IMAGES.map(function (img) {
-      return '<div class="gallery__item">'
+    galleryGrid.innerHTML = IMAGES.map(function (img, i) {
+      return '<button type="button" class="gallery__item" data-i="' + i + '" aria-label="Open photo ' + (i + 1) + ' of ' + IMAGES.length + '">'
         + '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy" onload="if(this.naturalHeight>this.naturalWidth)this.parentNode.classList.add(\'is-tall\')" />'
         + (img.caption ? '<div class="gallery__caption">' + esc(img.caption) + '</div>' : '')
-        + '</div>';
+        + '</button>';
     }).join("");
   } else {
     galleryGrid.innerHTML = '<p class="gallery__empty">Photos coming soon.</p>';
@@ -99,4 +99,53 @@ if (galleryGrid) {
   });
   track.addEventListener("scroll", syncArrows, { passive: true });
   syncArrows();
+})();
+
+/* ---------- lightbox: click a photo to view it full size, step through, close ---------- */
+(function () {
+  var track = document.getElementById("gallery-grid");
+  if (!track || !IMAGES.length || !window.HTMLDialogElement) return;
+  var full = function (src) { return src.replace("/w800/", "/").replace(/\.webp$/, ".jpeg"); };  /* originals for full view */
+  var dlg = document.createElement("dialog");
+  dlg.className = "lbox"; dlg.setAttribute("aria-label", "Photo viewer");
+  dlg.innerHTML = '<figure class="lbox__fig"><img class="lbox__img" alt="" /><figcaption class="lbox__cap"></figcaption></figure>'
+    + '<button type="button" class="lbox__btn lbox__prev" aria-label="Previous photo">&#8592;</button>'
+    + '<button type="button" class="lbox__btn lbox__next" aria-label="Next photo">&#8594;</button>'
+    + '<button type="button" class="lbox__btn lbox__x" aria-label="Close photo viewer">&times;</button>';
+  document.body.appendChild(dlg);
+  var img = dlg.querySelector(".lbox__img"), cap = dlg.querySelector(".lbox__cap"), cur = 0;
+
+  function show(i) {
+    cur = (i + IMAGES.length) % IMAGES.length;            /* wraps at both ends */
+    img.src = full(IMAGES[cur].src);
+    img.alt = IMAGES[cur].caption || "";
+    cap.textContent = (IMAGES[cur].caption ? IMAGES[cur].caption + " · " : "") + (cur + 1) + " / " + IMAGES.length;
+    new Image().src = full(IMAGES[(cur + 1) % IMAGES.length].src);   /* warm the next photo */
+  }
+  track.addEventListener("click", function (e) {
+    var b = e.target.closest(".gallery__item"); if (!b) return;
+    show(+b.getAttribute("data-i"));
+    document.documentElement.style.overflow = "hidden";
+    dlg.showModal();
+  });
+  dlg.querySelector(".lbox__prev").addEventListener("click", function () { show(cur - 1); });
+  dlg.querySelector(".lbox__next").addEventListener("click", function () { show(cur + 1); });
+  dlg.querySelector(".lbox__x").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });   /* backdrop */
+  dlg.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(cur - 1);
+    else if (e.key === "ArrowRight") show(cur + 1);
+  });
+  dlg.addEventListener("close", function () {
+    document.documentElement.style.overflow = "";
+    var b = track.querySelector('[data-i="' + cur + '"]');   /* return focus to the photo now shown */
+    if (b) { b.focus({ preventScroll: true }); b.scrollIntoView({ block: "nearest", inline: "nearest" }); }
+  });
+  var x0 = null;   /* touch swipe */
+  dlg.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  dlg.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  });
 })();
